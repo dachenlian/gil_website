@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href=" {% static 'slick/slick-theme.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="ui two column centered grid">
+        <div class="column slider">
+            <div><img class="ui fluid image" src="{% static 'homepage/1.jpg' %}" alt=""></div>
+            <div><img class="ui fluid image" src="{% static 'homepage/2.jpg' %}" alt=""></div>
+            <div><img class="ui fluid image" src="{% static 'homepage/3.jpg' %}" alt=""></div>
+            <div><img class="ui fluid image" src="{% static 'homepage/4.jpg' %}" alt=""></div>
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="eight wide computer sixteen wide mobile column">
+            <div class="ui large header">News</div>
+            <div class="ui middle aligned divided relaxed list">
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所博士班入學考試 口試名單</a>
+                        <div class="description">May 16, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="eight wide computer sixteen wide mobile column">
+            <div class="ui large header">Talks/Events</div>
+            <div class="ui middle aligned divided relaxed list">
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所博士班入學考試 口試名單</a>
+                        <div class="description">May 16, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
+                        <div class="description">March 9, 2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html id="body" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graduate Institute of Linguistics at NTU</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/semantic.min.css' %}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/gil.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{% static 'dist/semantic.min.js' %}"></script>
+    <!--Let browser know people is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% block header %}
+    {% endblock %}
+</head>
+<body id="body">
+<div id="content">
+    <div class="ui eleven item stackable menu">
+        <div class="header item">
+            <a style="color: black;" href="/">GIL</a>
+        </div>
+        <a class="item" href="{% url 'introduction:index' %}">Introduction</a>
+        <div class="ui dropdown item">
+            People
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="{% url 'people:faculty_list_view' %}">Faculty</a>
+                <a class="item" href="{% url 'people:staff_list_view' %}">Staff</a>
+                <a class="item" href="{% url 'people:master_student_list_view' %}">M.A. Students</a>
+                <a class="item" href="{% url 'people:phd_student_list_view' %}">Ph.D. Students</a>
+            </div>
+        </div>
+        <a class="item" href="{% url 'admissions:index' %}">Admissions</a>
+        <a class="item" href="{% url 'courses:index' %}">Courses</a>
+        <a class="item" href="{% url 'funding:index' %}">Funding</a>
+        <a class="item" href="{% url 'newsletter:index' %}">Newsletter</a>
+        <a class="item" href="{% url 'links:index' %}">Links</a>
+        <a class="item" href="{% url 'contact_info:index' %}">Contact Information</a>
+    </div>
+    <div id="site-content" class="site-content ui container">
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+</div>
+<footer id="footer" class="ui inverted vertical footer segment" >
+    <div class="ui center aligned container">
+        <p class="">Graduate Institute of Linguistics, National Taiwan University, No.
+            1, Sec. 4, Roosevelt Rd., Taipei, Taiwan (R.O.C.) 10617</p>
+        <p>Copyright © {% now "Y" %} - All Rights Reserved - Graduate Institute of Linguistics, National Taiwan
+            University</p>
+    </div>
+</footer>
+{% block scripts %}
+{% endblock %}
+<script>
+    $('.tabular.menu .item').tab();
+</script>
+<script>
+    $(document).ready(function () {
+        $('.ui.dropdown').dropdown();
+        $('.slider').slick({
+           adaptiveHeight: true,
+        });
+    });
+</script>
+</body>
+</html>
