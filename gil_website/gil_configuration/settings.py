@@ -25,7 +25,7 @@ SECRET_KEY = '-nmnd2$k69b9o1nbbqqh!my6uz&dfm)wx1h04^agc_q1fm5m5!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'gil_configuration.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gil',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': '172.17.0.2',
+        'HOST': 'db',
         'PORT': '5432'
     }
 }
