@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{% static 'css/gil.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}">
     <script src="{% static 'dist/semantic.min.js' %}"></script>
     <!--Let browser know people is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -55,7 +57,8 @@
             University</p>
     </div>
 </footer>
-{% block scripts %}
+<script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+{% block script %}
 {% endblock %}
 <script>
     $('.tabular.menu .item').tab();
@@ -64,7 +67,10 @@
     $(document).ready(function () {
         $('.ui.dropdown').dropdown();
         $('.slider').slick({
-           adaptiveHeight: true,
+           adaptiveHeight: false,
+            autoplay: true,
+            fade: true,
+            centerMode: true,
         });
     });
 </script>

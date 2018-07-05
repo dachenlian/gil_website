@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <h1 class="ui header">Contact Information</h1>
+    <div class="ui two column centered grid">
+        <div class="column slider">
+            <div><img class="ui large fluid image" src="{% static 'contact_info/gil1.jpg' %}" alt=""></div>
+            <div><img class="ui large fluid image" src="{% static 'contact_info/gil2.jpg' %}" alt=""></div>
+            <div><img class="ui large fluid image" src="{% static 'contact_info/gil3.jpg' %}" alt=""></div>
+            <div><img class="ui large fluid image" src="{% static 'contact_info/gil4.jpg' %}" alt=""></div>
+            <div><img class="ui large fluid image" src="{% static 'contact_info/gil5.jpg' %}" alt=""></div>
+        </div>
+    </div>
 {% endblock %}

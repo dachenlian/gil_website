@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block header %}
-    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
-    <link rel="stylesheet" href=" {% static 'slick/slick-theme.css' %}">
-{% endblock %}
 {% block content %}
     <div class="ui two column centered grid">
         <div class="column slider">
@@ -76,5 +72,4 @@
     </div>
 {% endblock %}
 {% block scripts %}
-    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
 {% endblock %}
