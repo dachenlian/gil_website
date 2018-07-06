@@ -11,6 +11,7 @@ mongo = "*"
 "psycopg2" = "*"
 pillow = "*"
 easy-thumbnails = "*"
+python-magic = "*"
 
 [requires]
 python_version = "3.6"

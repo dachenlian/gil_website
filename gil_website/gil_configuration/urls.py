@@ -18,6 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from common.util.util import download
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^newsletter/', include('newsletter.urls', namespace='newsletter')),
     url(r'^links/', include('links.urls', namespace='links')),
     url(r'^contactinfo', include('contact_info.urls', namespace='contact_info')),
+    url(r'(?P<file>uploads/[\w/.]+)', download, name='download')
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,3 +12,5 @@ class EventListView(ListView):
         return context
 
     template_name = 'homepage/index.html'
+
+

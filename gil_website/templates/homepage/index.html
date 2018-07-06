@@ -13,63 +13,42 @@
         <div class="eight wide computer sixteen wide mobile column">
             <div class="ui large header">News</div>
             <div class="ui middle aligned divided relaxed list">
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所博士班入學考試 口試名單</a>
-                        <div class="description">May 16, 2018</div>
+                {% for item in news %}
+                    <div class="item">
+                        <div class="content">
+                            {% if item.link %}
+                                <a class="header" href="{{ item.link }}">{{ item.title }}</a>
+                            {% elif item.file %}
+                                <a class="header" href="{{ item.file }}">{{ item.title }}</a>
+                            {% else %}
+                                <div class="header">{{ item.title }}</div>
+                                <div class="description">{{ item.time_posted }}</div>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="eight wide computer sixteen wide mobile column">
             <div class="ui large header">Talks/Events</div>
             <div class="ui middle aligned divided relaxed list">
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所博士班入學考試 口試名單</a>
-                        <div class="description">May 16, 2018</div>
+                {% for item in talks %}
+                    <div class="item">
+                        <div class="content">
+                            {% if item.link %}
+                                <a class="header" href="{{ item.link }}">{{ item.title }}</a>
+                            {% elif item.file %}
+                                <a class="header" href="{{ item.file }}">{{ item.title }}</a>
+                            {% else %}
+                                <div class="header">{{ item.title }}</div>
+                                <div class="description">{{ item.time_posted }}</div>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <a class="header" href="#!">107 學年國立臺灣大學語言學研究所碩士班入學考試 口試名單</a>
-                        <div class="description">March 9, 2018</div>
-                    </div>
+                {% endfor %}
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 {% endblock %}
 {% block scripts %}
 {% endblock %}
