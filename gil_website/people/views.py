@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import MasterStudent, DoctorateStudent, Faculty, Staff
 
@@ -17,7 +16,6 @@ class MasterStudentListView(ListView):
         context['graduated'] = MasterStudent.objects.filter(year_of_study='GRAD')
         return context
     template_name = 'people/ma_students.html'
-
 
 
 class DoctorateStudentListView(ListView):
