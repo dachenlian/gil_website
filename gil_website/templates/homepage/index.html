@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="ui two column centered grid">
-        <div class="column slider">
-            <div><img class="ui fluid image" src="{% static 'homepage/1.jpg' %}" alt=""></div>
-            <div><img class="ui fluid image" src="{% static 'homepage/2.jpg' %}" alt=""></div>
-            <div><img class="ui fluid image" src="{% static 'homepage/3.jpg' %}" alt=""></div>
-            <div><img class="ui fluid image" src="{% static 'homepage/4.jpg' %}" alt=""></div>
+    <div class="ui column centered grid">
+        <div  class="column slider">
+            <div><img style="max-height: 500px; overflow: auto;" class="ui fluid image" src="{% static 'homepage/1.jpg' %}" alt=""></div>
+            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/2.jpg' %}" alt=""></div>
+            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/3.jpg' %}" alt=""></div>
+            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/4.jpg' %}" alt=""></div>
         </div>
     </div>
     <div class="ui grid">

@@ -4,42 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Graduate Institute of Linguistics at NTU</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'dist/semantic.min.css' %}"/>
+    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/gil.css' %}">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css" media="screen,projection"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}">
-    <script src="{% static 'dist/semantic.min.js' %}"></script>
-    <!--Let browser know people is optimized for mobile-->
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block header %}
     {% endblock %}
 </head>
-<body id="body">
-<div id="content">
+<body>
+<ul id="people_dropdown" class="dropdown-content">
+    <li><a class="item" href="{% url 'people:faculty_list_view' %}">Faculty</a></li>
+    <li><a class="item" href="{% url 'people:staff_list_view' %}">Staff</a></li>
+    <li><a class="item" href="{% url 'people:master_student_list_view' %}">M.A. Students</a></li>
+    <li><a class="item" href="{% url 'people:phd_student_list_view' %}">Ph.D. Students</a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">GIL</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown">People</a></li>
+            <li><a class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
+            <li><a class="item" href="{% url 'courses:index' %}">Courses</a></li>
+            <li><a class="item" href="{% url 'funding:index' %}">Funding</a></li>
+            <li><a class="item" href="{% url 'newsletter:index' %}">Newsletter</a></li>
+            <li><a class="item" href="{% url 'links:index' %}">Links</a></li>
+            <li><a class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
+        </ul>
+    </div>
+</nav>
+<div>
     <div class="ui eleven item stackable menu">
-        <div class="header item">
-            <a style="color: black;" href="/">GIL</a>
-        </div>
-        <a class="item" href="{% url 'introduction:index' %}">Introduction</a>
-        <div class="ui dropdown item">
-            People
-            <i class="dropdown icon"></i>
-            <div class="menu">
-                <a class="item" href="{% url 'people:faculty_list_view' %}">Faculty</a>
-                <a class="item" href="{% url 'people:staff_list_view' %}">Staff</a>
-                <a class="item" href="{% url 'people:master_student_list_view' %}">M.A. Students</a>
-                <a class="item" href="{% url 'people:phd_student_list_view' %}">Ph.D. Students</a>
-            </div>
-        </div>
-        <a class="item" href="{% url 'admissions:index' %}">Admissions</a>
-        <a class="item" href="{% url 'courses:index' %}">Courses</a>
-        <a class="item" href="{% url 'funding:index' %}">Funding</a>
-        <a class="item" href="{% url 'newsletter:index' %}">Newsletter</a>
-        <a class="item" href="{% url 'links:index' %}">Links</a>
-        <a class="item" href="{% url 'contact_info:index' %}">Contact Information</a>
     </div>
     <div id="site-content" class="site-content ui container">
         <div class="wrapper">
@@ -49,30 +47,29 @@
 
     </div>
 </div>
-<footer id="footer" class="ui inverted vertical footer segment" >
-    <div class="ui center aligned container">
-        <p class="">Graduate Institute of Linguistics, National Taiwan University, No.
-            1, Sec. 4, Roosevelt Rd., Taipei, Taiwan (R.O.C.) 10617</p>
-        <p>Copyright © {% now "Y" %} - All Rights Reserved - Graduate Institute of Linguistics, National Taiwan
-            University</p>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col 16 s12">
+                <p class="white-text">Graduate Institute of Linguistics, National Taiwan University, No.
+                    1, Sec. 4, Roosevelt Rd., Taipei, Taiwan (R.O.C.) 10617</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <p>Copyright © {% now "Y" %} - All Rights Reserved - Graduate Institute of Linguistics, National Taiwan
+                University</p>
+        </div>
     </div>
 </footer>
-<script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
-{% block script %}
-{% endblock %}
-<script>
-    $('.tabular.menu .item').tab();
-</script>
+<script type="text/javascript" src="/static/js/materialize.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.ui.dropdown').dropdown();
-        $('.slider').slick({
-           adaptiveHeight: false,
-            autoplay: true,
-            fade: true,
-            centerMode: true,
-        });
+        $(".dropdown-trigger").dropdown();
     });
 </script>
+{% block script %}
+{% endblock %}
 </body>
 </html>
