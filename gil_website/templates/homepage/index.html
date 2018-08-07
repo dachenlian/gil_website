@@ -1,54 +1,54 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="ui column centered grid">
-        <div  class="column slider">
-            <div><img style="max-height: 500px; overflow: auto;" class="ui fluid image" src="{% static 'homepage/1.jpg' %}" alt=""></div>
-            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/2.jpg' %}" alt=""></div>
-            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/3.jpg' %}" alt=""></div>
-            <div><img style="max-height: 500px; overflow: hidden;" class="ui fluid image" src="{% static 'homepage/4.jpg' %}" alt=""></div>
+    <div class="row">
+        <div class="col l12">
+            <div class="carousel carousel-slider">
+                <img class="carousel-item" src="{% static 'homepage/1.jpg' %}" alt="">
+                <img class="carousel-item" src="{% static 'homepage/2.jpg' %}" alt="">
+                <img class="carousel-item" src="{% static 'homepage/3.jpg' %}" alt="">
+                <img class="carousel-item" src="{% static 'homepage/4.jpg' %}" alt="">
+            </div>
         </div>
     </div>
-    <div class="ui grid">
-        <div class="eight wide computer sixteen wide mobile column">
-            <div class="ui large header">News</div>
-            <div class="ui middle aligned divided relaxed list">
+    <div class="row">
+        <div class="col l12 s12">
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>News</h4></li>
                 {% for item in news %}
-                    <div class="item">
-                        <div class="content">
-                            {% if item.link %}
-                                <a class="header" href="{{ item.link }}">{{ item.title }}</a>
-                            {% elif item.file %}
-                                <a class="header" href="{{ item.file }}">{{ item.title }}</a>
-                            {% else %}
-                                <div class="header">{{ item.title }}</div>
-                                <div class="description">{{ item.time_posted }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
+                    <li class="collection-item">
+                        {% if item.link %}
+                            <a href="{{ item.link }}">{{ item.time_posted }}{{ item.title }}</a>
+                        {% elif item.file %}
+                            <a href="{{ item.file }}">{{ item.title }}</a>
+                        {% else %}
+                            {{ item.title }}
+                            {{ item.time_posted }}
+                        {% endif %}
+                    </li>
                 {% endfor %}
-            </div>
+            </ul>
         </div>
-        <div class="eight wide computer sixteen wide mobile column">
-            <div class="ui large header">Talks/Events</div>
-            <div class="ui middle aligned divided relaxed list">
+    </div>
+    <div class="row">
+        <div class="col l12 s12">
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>Talks/Events</h4></li>
                 {% for item in talks %}
-                    <div class="item">
-                        <div class="content">
-                            {% if item.link %}
-                                <a class="header" href="{{ item.link }}">{{ item.title }}</a>
-                            {% elif item.file %}
-                                <a class="header" href="{{ item.file }}">{{ item.title }}</a>
-                            {% else %}
-                                <div class="header">{{ item.title }}</div>
-                                <div class="description">{{ item.time_posted }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
+                    <li class="collection-item">
+                        {% if item.link %}
+                            <a href="{{ item.link }}">{{ item.title }}</a>
+                        {% elif item.file %}
+                            <a href="{{ item.file }}">{{ item.title }}</a>
+                        {% else %}
+                            {{ item.title }}
+                            {{ item.time_posted }}
+                        {% endif %}
+                    </li>
                 {% endfor %}
-                </div>
-            </div>
+            </ul>
         </div>
+    </div>
 {% endblock %}
-{% block scripts %}
+{% block script %}
 {% endblock %}

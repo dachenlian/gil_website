@@ -22,7 +22,7 @@
     <li><a class="item" href="{% url 'people:phd_student_list_view' %}">Ph.D. Students</a></li>
 </ul>
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper red darken-4">
         <a href="/" class="brand-logo">GIL</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
@@ -36,30 +36,24 @@
         </ul>
     </div>
 </nav>
-<div>
-    <div class="ui eleven item stackable menu">
-    </div>
-    <div id="site-content" class="site-content ui container">
-        <div class="wrapper">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-    </div>
+<div class="container">
+    <br>
+    {% block content %}
+    {% endblock %}
 </div>
-<footer class="page-footer">
+<footer class="page-footer red darken-4">
     <div class="container">
         <div class="row">
-            <div class="col 16 s12">
+            <div class="col l12 s12">
                 <p class="white-text">Graduate Institute of Linguistics, National Taiwan University, No.
                     1, Sec. 4, Roosevelt Rd., Taipei, Taiwan (R.O.C.) 10617</p>
             </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            <p>Copyright © {% now "Y" %} - All Rights Reserved - Graduate Institute of Linguistics, National Taiwan
-                University</p>
+            <div class="row">
+                <div class="col l12 s12">
+                    <p>Copyright © {% now "Y" %} - All Rights Reserved - Graduate Institute of Linguistics, National
+                        Taiwan University</p>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
@@ -67,6 +61,10 @@
 <script>
     $(document).ready(function () {
         $(".dropdown-trigger").dropdown();
+        $(".carousel").carousel({
+            {#fullWidth: true#}
+            indicators: true
+        });
     });
 </script>
 {% block script %}
