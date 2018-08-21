@@ -1,122 +1,153 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
-
 {% block content %}
-    <h1 class="ui header">
-        <i class="circular users icon"></i>
-        Master Students
-    </h1>
-    <div class="ui top attached tabular menu">
-        <a class="item active" data-tab="first">First</a>
-        <a class="item" data-tab="second">Second</a>
-        <a class="item" data-tab="third">Third</a>
-        <a class="item" data-tab="fourth">Fourth</a>
-        <a class="item" data-tab="graduated">Graduated</a>
-    </div>
-    <div class="ui bottom attached tab segment active" data-tab="first">
-        <div class="ui four cards stackable">
-            {% for student in first %}
-                <div class="card">
-                    <div class="image">
-                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">
+    <div class="row">
+        <h2>Master Students</h2>
+        <div class="divider"></div>
+        <div class="section">
+            <h5>First</h5>
+            <div class="col l3 m4 s12">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="/media/uploads/richard.jpg" alt="">
                     </div>
-                    <div class="content">
-                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>
-                        <div class="meta">
-                            <span>{{ student.email }}</span>
-                        </div>
-                        <div class="description">
-                            <p><strong>Research Interests</strong></p>
-                            <p>{{ student.research_interests }}</p>
-                        </div>
+                    <div class="card-content">
+                        <h5>Richard Lian (連大成)</h5>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-        <div class="ui four cards stackable">
-            {% for student in second %}
-                <div class="card">
-                    <div class="image">
-                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">
+            </div>
+            <div class="col l3 m4 s12">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="/media/uploads/richard.jpg" alt="">
                     </div>
-                    <div class="content">
-                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>
-                        <div class="meta">
-                            <span>{{ student.email }}</span>
-                        </div>
-                        <div class="description">
-                            <p><strong>Research Interests</strong></p>
-                            <p>{{ student.research_interests }}</p>
-                        </div>
+                    <div class="card-content">
+                        <h5>Richard Lian (連大成)</h5>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="third">
-        <div class="ui four cards stackable">
-            {% for student in third%}
-                <div class="card">
-                    <div class="image">
-                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">
+            </div>
+            <div class="col l3 m4 s12">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="/media/uploads/richard.jpg" alt="">
                     </div>
-                    <div class="content">
-                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>
-                        <div class="meta">
-                            <span>{{ student.email }}</span>
-                        </div>
-                        <div class="description">
-                            <p><strong>Research Interests</strong></p>
-                            <p>{{ student.research_interests }}</p>
-                        </div>
+                    <div class="card-content">
+                        <h5>Richard Lian (連大成)</h5>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="fourth">
-        <div class="ui four cards stackable">
-            {% for student in fourth %}
-                <div class="card">
-                    <div class="image">
-                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">
+            </div>
+            <div class="col l3 m4 s12">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="/media/uploads/richard.jpg" alt="">
                     </div>
-                    <div class="content">
-                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>
-                        <div class="meta">
-                            <span>{{ student.email }}</span>
-                        </div>
-                        <div class="description">
-                            <p><strong>Research Interests</strong></p>
-                            <p>{{ student.research_interests }}</p>
-                        </div>
+                    <div class="card-content">
+                        <h5>Richard Lian (連大成)</h5>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
+        {#        {% for student in first %}#}
+        {#            <div class="card">#}
+        {#                <div class="card-image">#}
+        {#                    <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
+        {#                </div>#}
+        {#                <div class="card-content">#}
+        {#                    <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+        {#                    <div class="meta">#}
+        {#                        <span>{{ student.email }}</span>#}
+        {#                    </div>#}
+        {#                    <div class="description">#}
+        {#                        <p><strong>Research Interests</strong></p>#}
+        {#                        <p>{{ student.research_interests }}</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        {% endfor %}#}
     </div>
-    <div class="ui bottom attached tab segment" data-tab="graduated">
-        <div class="ui four cards stackable">
-            {% for student in graduated %}
-                <div class="card">
-                    <div class="image">
-                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">
-                    </div>
-                    <div class="content">
-                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>
-                        <div class="meta">
-                            <span>{{ student.email }}</span>
-                        </div>
-                        <div class="description">
-                            <p><strong>Research Interests</strong></p>
-                            <p>{{ student.research_interests }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-{% endblock %}
+    {#    <div class="ui bottom attached tab segment" data-tab="second">#}
+    {#        <div class="ui four cards stackable">#}
+    {#            {% for student in second %}#}
+    {#                <div class="card">#}
+    {#                    <div class="image">#}
+    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
+    {#                    </div>#}
+    {#                    <div class="content">#}
+    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+    {#                        <div class="meta">#}
+    {#                            <span>{{ student.email }}</span>#}
+    {#                        </div>#}
+    {#                        <div class="description">#}
+    {#                            <p><strong>Research Interests</strong></p>#}
+    {#                            <p>{{ student.research_interests }}</p>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="ui bottom attached tab segment" data-tab="third">#}
+    {#        <div class="ui four cards stackable">#}
+    {#            {% for student in third%}#}
+    {#                <div class="card">#}
+    {#                    <div class="image">#}
+    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
+    {#                    </div>#}
+    {#                    <div class="content">#}
+    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+    {#                        <div class="meta">#}
+    {#                            <span>{{ student.email }}</span>#}
+    {#                        </div>#}
+    {#                        <div class="description">#}
+    {#                            <p><strong>Research Interests</strong></p>#}
+    {#                            <p>{{ student.research_interests }}</p>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="ui bottom attached tab segment" data-tab="fourth">#}
+    {#        <div class="ui four cards stackable">#}
+    {#            {% for student in fourth %}#}
+    {#                <div class="card">#}
+    {#                    <div class="image">#}
+    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
+    {#                    </div>#}
+    {#                    <div class="content">#}
+    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+    {#                        <div class="meta">#}
+    {#                            <span>{{ student.email }}</span>#}
+    {#                        </div>#}
+    {#                        <div class="description">#}
+    {#                            <p><strong>Research Interests</strong></p>#}
+    {#                            <p>{{ student.research_interests }}</p>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="ui bottom attached tab segment" data-tab="graduated">#}
+    {#        <div class="ui four cards stackable">#}
+    {#            {% for student in graduated %}#}
+    {#                <div class="card">#}
+    {#                    <div class="image">#}
+    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
+    {#                    </div>#}
+    {#                    <div class="content">#}
+    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+    {#                        <div class="meta">#}
+    {#                            <span>{{ student.email }}</span>#}
+    {#                        </div>#}
+    {#                        <div class="description">#}
+    {#                            <p><strong>Research Interests</strong></p>#}
+    {#                            <p>{{ student.research_interests }}</p>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#    </div>#}
+{% endblock content %}
 
