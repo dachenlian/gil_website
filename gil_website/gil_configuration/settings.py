@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'links',
     'contact_info',
     'easy_thumbnails',
+    'cross_disciplinary'
 ]
 
 MIDDLEWARE = [

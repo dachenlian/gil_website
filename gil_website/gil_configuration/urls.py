@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^newsletter/', include('newsletter.urls', namespace='newsletter')),
     url(r'^links/', include('links.urls', namespace='links')),
     url(r'^contactinfo', include('contact_info.urls', namespace='contact_info')),
-    url(r'(?P<file>uploads/[\w/.]+)', download, name='download')
+    url(r'(?P<file>uploads/[\w/.]+)', download, name='download'),
+    url(r'^cross_disciplinary/', include('cross_disciplinary.urls', namespace='cross'))
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,9 +1,8 @@
 from django.urls import path
 from . import views
 
-
-app_name = "admissions"
+app_name = "cross"
 
 urlpatterns = [
-    path('', views.index, name='index')
+   path("", views.Index.as_view(), name='index'),
 ]
