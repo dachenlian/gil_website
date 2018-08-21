@@ -1,71 +1,47 @@
 {% extends 'base.html' %}
 {% block nav %}
-    <div class="nav-content red darken-4">
+    <div class="nav-content cyan darken-4">
         <ul class="tabs tabs-transparent">
-            <li class="tab"><a class="active" href="#">簡介</a></li>
-            <li class="tab"><a href="#">設立宗旨</a></li>
-            <li class="tab"><a href="#">修業規定</a></li>
-            <li class="tab"><a href="#">課程資訊</a></li>
-            <li class="tab"><a href="#">學生專區</a></li>
+            <li class="tab"><a class="active" href="{% url 'cross:index' %}">簡介</a></li>
+            <li class="tab"><a href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+            <li class="tab"><a href="{% url 'cross:requirements' %}">修業規定</a></li>
+            <li class="tab"><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+            <li class="tab"><a href="{% url 'cross:student' %}">學生專區</a></li>
         </ul>
     </div>
 {% endblock nav %}
 
 {% block content %}
     <div class="row">
-        <h2>Introduction</h2>
         <div class="section">
-            <h4>設立宗旨</h4>
+            <h3>跨域專長：語言、資訊與認知（Language, Information and Cognition）</h3>
             <div class="divider"></div>
             <div class="flow-text">
-                <p>
-                    語言為人類認知活動裡不可或缺的一環,牽動著我們的生活日常,反映著人類與周遭環境互動時所表現出的動態認知變化,因此,
+                <p>語言為人類認知活動裡不可或缺的一環,牽動著我們的生活日常,反映著人類與周遭環境互動時所表現出的動態認知變化,因此,
                     語言學在現代的認知科學裡,佔有相當核心的地位。
-                    目前探究語言認知的方式,主要可分二個面向進行,一是就人類
-                    對語言的產製、感知與學習方式,佐以心理學相關實驗法來理解語言認知,一是以資訊科學大數據的方式,從語料庫中找尋規律,
-                    並運用於人機互動的介面與智能系統的設計。
-                    台大目前雖有許多老師從事語言認知相關研究,但是並未設置大學部相關科系以培育語言認知人才,殊為可惜,
-                    也較難與本校目前研究所的研究動能做有效的連結。因此,台大語言學研究所擬結合校內相關系所單位的人力,
-                    設置學士班跨域專長課程模組,以期能為國內語言認知人才的培育盡一份心力。
-                </p>
-            </div>
-            <h5><strong>欲培養學生之核心能力</strong></h5>
-            <div class="flow-text">
-                <blockquote>
-                    <ol>
-                        <li>透過語言能力的培養,學會批判與論述。</li>
-                        <li>透過實驗設計的訓練,學會假設與推理。</li>
-                        <li>透過程式寫作的考驗,學會邏輯與思辨。</li>
-                    </ol>
-                </blockquote>
+                <p>目前探究語言認知的方式,主要可分二個面向進行:</p>
+                <p>1. <span style="font-weight: bold;">語言與認知</span> | 人類對語言的產製、感知與學習方式,佐以心理學相關實驗法來理解語言認知。</p>
+                <p>2. <span style="font-weight: bold;">語言與資訊</span> | 以資訊科學大數據的方式,從語料庫中找尋規律,並運用於人機互動的介面與智能系統的設計。</p>
+                <p>
+                    台大目前雖有許多老師從事語言認知相關研究,但是並未設置大學部相關科系以培育語言認知人才,殊為可惜,也較難與本校目前研究所的研究動能做有效的連結。因此,台大語言學研究所擬結合校內相關系所單位的人力,設置學士班跨域專長課程模組,以期能為國內語言認知人才的培育盡一份心力。</p>
             </div>
         </div>
         <div class="section">
             <h4>教學單位</h4>
             <div class="divider"></div>
-            {#            <div class="col s6">#}
-            {#                <div class="card">#}
-            {#                    <div class="card-content">#}
-            {#                        <span class="card-title">主辦教學單位</span>#}
-            {#                        <p>文學院語言學研究所</p>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
             <div class="flow-text">
-                <p>
-                    本跨域專長由文學院語言學研究所提出,並擔任主辦教學單位,負責整體課程模組的規劃。為培育學生對語言認知的後設思維能力,
-                    本課程模組包含横跨不同學院系與語言認知相關之專業教師，以落實真正「跨域」的精神、培養學生宏觀的視野。</p>
-                <h5>主辦教學單位</h5>
-
-                <blockquote>
-                    <em>文學院語言學研究所</em>
-                </blockquote>
-                <h5>參與教學單位</h5>
-                <blockquote>
-                    <em>文學院語言學研究所、中國文學系、外國語文學系、華語教學碩士學位學程、哲學系、華語教學碩士學程、理學院心理學系、
-                        電機資訊學院資訊工程系暨研究所、生物資源暨農學院生物產業機電工程學系、共同教育中心及附設醫院復健部。</em>
-                </blockquote>
-
+                <p><span style="font-weight: bold;">主辦教學單位</span> <br>
+                    文學院語言學研究所</p>
+                <p><span style="font-weight: bold;">參與教學單位</span> <br>
+                    文學院語言學研究所、中國文學系、外國語文學系、華語教學碩士學位學程、哲學系、華語教學碩士學程、理學院心理學系、電機資訊學院資訊工程系暨研究所、生物資源暨農學院生物產業機電工程學系、共同教育中心及附設醫院復健部。
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <h4>最新公告</h4>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p>Coming soon...</p>
             </div>
         </div>
     </div>

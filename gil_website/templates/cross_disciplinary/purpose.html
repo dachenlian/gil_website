@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="{% url 'cross:index' %}">簡介</a></li>
+            <li class="tab"><a class="active" href="{% url 'cross:index' %}">設立宗旨</a></li>
+            <li class="tab"><a href="{% url 'cross:requirements' %}">修業規定</a></li>
+            <li class="tab"><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+            <li class="tab"><a href="{% url 'cross:student' %}">學生專區</a></li>
+        </ul>
+    </div>
+{% endblock nav %}
+
+{% block content %}
+    <div class="row">
+        <div class="section">
+            <h3>設立宗旨</h3>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p style="font-weight: bold;">透過横跨不同學院系與語言認知相關之課程，培育學生對語言認知的後設思維能力,落實真正「跨域」的精神、培養學生宏觀的視野。</p>
+                <blockquote style="border-left: 5px solid #006064">
+                    <p style="font-weight: bold;">欲培養學生之核心能力</p>
+                    <p><i class="material-icons small">arrow_drop_up</i>透過語言能力的培養,學會批判與論述。</p>
+                    <p><i class="material-icons small">arrow_drop_up</i>透過實驗設計的訓練,學會假設與推理。</p>
+                    <p><i class="material-icons small">arrow_drop_up</i>透過程式寫作的考驗,學會邏輯與思辨。</p>
+                </blockquote>
+            </div>
+        </div>
+        <div>
+            <img style="display: block; margin: 0 auto;" class="materialboxed" width="650"
+                 src="{% static 'cross_disciplinary/LIC發展規劃圖.png' %}" alt="">
+        </div>
+    </div>
+{% endblock content %}

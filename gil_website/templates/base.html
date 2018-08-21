@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+    <link rel="stylesheet" href="{% static 'css/gil.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -29,7 +30,7 @@
 </ul>
 <div class="navbar-fixed">
     <nav class="nav-extended">
-        <div class="nav-wrapper red darken-4">
+        <div class="nav-wrapper cyan darken-4">
             <a href="/" class="brand-logo">GIL</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -60,12 +61,15 @@
     <li><a id="links" class="item" href="{% url 'links:index' %}">Links</a></li>
     <li><a id="contact_info" class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
 </ul>
-<div class="container">
-    <br>
-    {% block content %}
-    {% endblock %}
-</div>
-<footer class="page-footer red darken-4">
+<main>
+    <div class="container">
+        <br>
+        <br>
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+<footer class="page-footer cyan darken-4">
     <div class="container">
         <div class="row">
             <div class="col l12 s12">
@@ -92,6 +96,7 @@
             indicators: true
         });
         $(".sidenav").sidenav();
+        $(".materialboxed").materialbox();
     });
 </script>
 {% block javascript %}

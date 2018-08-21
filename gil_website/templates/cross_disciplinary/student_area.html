@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="{% url 'cross:index' %}">簡介</a></li>
+            <li class="tab"><a href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+            <li class="tab"><a href="{% url 'cross:requirements' %}">修業規定</a></li>
+            <li class="tab"><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+            <li class="tab"><a class="active" href="{% url 'cross:student' %}">學生專區</a></li>
+        </ul>
+    </div>
+{% endblock nav %}
+
+{% block content %}
+    <div class="row">
+        <h3>學生專區</h3>
+        <div class="section">
+            <h4>學生專區</h4>
+            <div class="divider"></div>
+            <div class="center-align">
+                <p><a class="waves-effect waves-light btn-large" href="#"><i
+                    class="material-icons left">question_answer</i>FAQ</a></p>
+                <a class="waves-effect waves-light btn-large" href="#"><i class="material-icons left">person</i>申請/登錄帳號</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

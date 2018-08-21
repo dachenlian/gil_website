@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="{% url 'cross:index' %}">簡介</a></li>
+            <li class="tab"><a href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+            <li class="tab"><a class="active" href="{% url 'cross:requirements' %}">修業規定</a></li>
+            <li class="tab"><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+            <li class="tab"><a href="{% url 'cross:student' %}">學生專區</a></li>
+        </ul>
+    </div>
+{% endblock nav %}
+
+{% block content %}
+    <div class="row">
+        <h3>修業規定</h3>
+        <div class="section">
+            <h4>申請資格</h4>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p>國立台灣大學大學部學生。</p>
+            </div>
+        </div>
+        <div class="section">
+            <h4>課程架構</h4>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p>本跨域專長之課程分為三大層次，詳如下圖所示。</p>
+            </div>
+            <img style="display: block; margin: 0 auto;" class="materialboxed" width="650"
+                 src="{% static 'cross_disciplinary/課程架構.png' %}" alt="">
+        </div>
+        <div class="section">
+            <h4>課程地圖</h4>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p>以下為本跨域專長之課程地圖。
+                    原則上語言相關科系學生可選擇「語言與認知」或「語言與資訊」作為主修,並以此規劃自身修課計劃。
+                    心理相關科系學生原則上選擇「語言與認知」為主修,而資訊科學相關科系學生原則上選擇「語言與資訊」為主修。</p>
+            </div>
+            <img style="display: block; margin: 0 auto;" class="materialboxed" width="650"
+                 src="{% static 'cross_disciplinary/課程地圖.png' %}" alt="">
+        </div>
+        <div class="section">
+            <h4>修畢學生之資格審核程序</h4>
+            <div class="divider"></div>
+            <div class="flow-text">
+                <p>學生修習之跨域專長科目成績及格,且符合本跨域專長規定資格者,得於修業期間向 <span style="font-weight: bold;">語言所</span>申請專長資格審核,
+                    至遲於 <span style="font-weight: bold;">應屆畢業當學年,第一學期應於十月底前提出,第二學期應於三月底前提出。</span></p>
+                <p>學生依規定修畢三階段學分後,經語言所所辦及教務處審核, <span
+                        style="font-weight: bold;">得於學位證書、歷年成績表及相關證明文件加註「語言、資訊與認知」專業。</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
