@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block full-width %}
+    <div class="slider">
+    <ul class="slides">
+        <li>
+            <img src="{% static 'homepage/bookcase.jpg' %}" alt="">
+        </li>
+    </ul>
+{% endblock %}
 {% block content %}
-    <div class="row">
-        <div class="col l12">
-            <div class="carousel carousel-slider">
-                <img class="carousel-item" src="{% static 'homepage/1.jpg' %}" alt="">
-                <img class="carousel-item" src="{% static 'homepage/2.jpg' %}" alt="">
-                <img class="carousel-item" src="{% static 'homepage/3.jpg' %}" alt="">
-                <img class="carousel-item" src="{% static 'homepage/4.jpg' %}" alt="">
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col l12 s12">
             <ul class="collection with-header">

@@ -62,9 +62,9 @@
     <li><a id="contact_info" class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
 </ul>
 <main>
+{% block full-width %}
+{% endblock full-width %}
     <div class="container">
-        <br>
-        <br>
         {% block content %}
         {% endblock %}
     </div>
@@ -93,10 +93,15 @@
         });
         $(".carousel").carousel({
             {#fullWidth: true#}
-            indicators: true
+            indicators: true,
         });
         $(".sidenav").sidenav();
         $(".materialboxed").materialbox();
+        $(".slider").slider({
+            fullWidth: true,
+            height: 600,
+        });
+        {#if($('tabs'))#}
     });
 </script>
 {% block javascript %}
