@@ -3,14 +3,15 @@
 {% block full-width %}
     <div class="slider">
     <ul class="slides">
-        <li>
-            <img src="{% static 'homepage/bookcase.jpg' %}" alt="">
-        </li>
+        <li><img src="{% static 'homepage/bookcase.jpg' %}" alt=""></li>
+        <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>
+        <li><img src="{% static 'homepage/books.jpg' %}" alt=""></li>
     </ul>
+    <br><br>
 {% endblock %}
 {% block content %}
     <div class="row">
-        <div class="col l12 s12">
+        <div class="col l6 s12">
             <ul class="collection with-header">
                 <li class="collection-header"><h4>News</h4></li>
                 {% for item in news %}
@@ -27,9 +28,7 @@
                 {% endfor %}
             </ul>
         </div>
-    </div>
-    <div class="row">
-        <div class="col l12 s12">
+        <div class="col l6 s12">
             <ul class="collection with-header">
                 <li class="collection-header"><h4>Talks/Events</h4></li>
                 {% for item in talks %}

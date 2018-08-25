@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load materializecss %}
 {% block nav %}
     <div class="nav-content cyan darken-4">
         <ul class="tabs tabs-transparent">
@@ -16,18 +17,19 @@
     <div style="margin-top: 50px;" class="row">
         <div class="section">
             <h3>學生專區</h3>
-            <h4>學生專區</h4>
-            <div class="divider"></div>
-            <div class="center-align">
-                {#                <br><br><br><br>#}
-                <div class="col s6">
-                    <p><a class="waves-effect waves-light btn-large" href="#"><i
-                            class="material-icons left">question_answer</i>FAQ</a></p>
-                </div>
-                <div class="col s6">
-                    <p><a class="waves-effect waves-light btn-large" href="{% url 'cross:signup' %}"><i class="material-icons left">person</i>申請/登錄帳號</a>
-                    </p>
-                </div>
+            <h4>註冊</h4>
+        </div>
+        <div class="col s12 l6 offset-l3">
+            <div class="section">
+                <form action="{% url 'cross:signup' %}" method="post">
+                    {% csrf_token %}
+                    {{ form|materializecss }}
+                    <div class="center-align">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -16,6 +16,20 @@
     {% endblock %}
 </head>
 <body>
+<ul id="cross_dropdown1" class="dropdown-content">
+    <li><a href="{% url 'cross:index' %}">簡介</a></li>
+    <li><a href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+    <li><a href="{% url 'cross:requirements' %}">修業規定</a></li>
+    <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+    <li><a href="{% url 'cross:student' %}">學生專區</a></li>
+</ul>
+<ul id="cross_dropdown2" class="dropdown-content">
+    <li><a href="{% url 'cross:index' %}">簡介</a></li>
+    <li><a href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+    <li><a href="{% url 'cross:requirements' %}">修業規定</a></li>
+    <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
+    <li><a href="{% url 'cross:student' %}">學生專區</a></li>
+</ul>
 <ul id="people_dropdown1" class="dropdown-content">
     <li><a href="{% url 'people:faculty_list_view' %}">Faculty</a></li>
     <li><a href="{% url 'people:staff_list_view' %}">Staff</a></li>
@@ -38,7 +52,8 @@
                 <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown1">People
                     <i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a id="admissions" class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
-                <li><a id="cross" class="item" href="{% url 'cross:index' %}">Cross-Disciplinary Program</a></li>
+                <li><a id="cross" class="dropdown-trigger" href="#!" data-target="cross_dropdown1">Cross-Disciplinary Program
+                <i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a id="courses" class="item" href="{% url 'courses:index' %}">Courses</a></li>
                 <li><a id="funding" class="item" href="{% url 'funding:index' %}">Funding</a></li>
                 <li><a id="newsletter" class="item" href="{% url 'newsletter:index' %}">Newsletter</a></li>
@@ -52,9 +67,11 @@
 </div>
 <ul class="sidenav" id="mobile-demo">
     <li><a id="intro" class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
-    <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown2">People</a></li>
+    <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown2">People
+    <i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a id="admissions" class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
-    <li><a id="cross" class="item" href="{% url 'cross:index' %}">Cross-Disciplinary Program</a></li>
+    <li><a id="cross" class="dropdown-trigger" href="#!" data-target="cross_dropdown2">Cross-Disciplinary Program
+        <i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a id="courses" class="item" href="{% url 'courses:index' %}">Courses</a></li>
     <li><a id="funding" class="item" href="{% url 'funding:index' %}">Funding</a></li>
     <li><a id="newsletter" class="item" href="{% url 'newsletter:index' %}">Newsletter</a></li>
@@ -62,8 +79,21 @@
     <li><a id="contact_info" class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
 </ul>
 <main>
-{% block full-width %}
-{% endblock full-width %}
+    {% block full-width %}
+    {% endblock full-width %}
+    <div class="container">
+        <div class="row">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
     <div class="container">
         {% block content %}
         {% endblock %}
@@ -101,6 +131,8 @@
             fullWidth: true,
             height: 600,
         });
+        $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+        $('select').formSelect();
         {#if($('tabs'))#}
     });
 </script>
