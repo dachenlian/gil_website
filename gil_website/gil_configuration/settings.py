@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'links',
     'contact_info',
     'easy_thumbnails',
-    'cross_disciplinary'
+    'cross_disciplinary',
+    'materializecssform',
+    # 'material.theme.cyan',
+    'material',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
 ROOT_URLCONF = 'gil_configuration.urls'
 

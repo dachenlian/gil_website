@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load materializecss %}
+{% load material_form %}
 {% block nav %}
     <div class="nav-content cyan darken-4">
         <ul class="tabs tabs-transparent">
@@ -23,7 +23,7 @@
             <div class="section">
                 <form action="{% url 'cross:signup' %}" method="post">
                     {% csrf_token %}
-                    {{ form|materializecss }}
+                    {% form form=form %}{% endform %}
                     <div class="center-align">
                         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
