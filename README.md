@@ -1,6 +1,7 @@
 # GIL Website
 
 ## Set up
-- Run `docker-compose up`
-- Then run `docker exec gil_project_web_1 python manage.py migrate`
-- I know there's a much better way of doing this...
+1. Must have Docker installed.
+2. Must have Docker Compose installed.
+3. Change directories to `docker-compose.yml`.
+4. Run `docker-compose up`.
