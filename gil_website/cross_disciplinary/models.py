@@ -31,6 +31,9 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('profile_detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return f"{self.zh_name} / {self.eng_name} / {self.student_id}"
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
