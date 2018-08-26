@@ -1,0 +1,193 @@
+{% extends 'cross_disciplinary/cross_disciplinary_base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="section">
+            <h3>Profile</h3>
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static 'cross_disciplinary/chairssuperwide.jpg' %}" alt="">
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <div class="row valign-wrapper">
+                                <div class="col l4 s12 center-align">
+                                    <img class="circle  responsive-img z-depth-2"
+                                         src="{% static 'cross_disciplinary/coconut.jpg' %}" alt="">
+                                </div>
+                                <div class="col l2 s12 center-align">
+                                    <h4 class="card-title">{{ profile.eng_name }}</h4>
+                                    <p class="medium-small grey-text">英文姓名</p>
+                                </div>
+                                <div class="col s2 s12 center-align">
+                                    <h4 class="card-title">{{ profile.student_id }}</h4>
+                                    <p class="medium-small grey-text">學號</p>
+                                </div>
+                                <div class="col l2 s12 center-align">
+                                    <h4 class="card-title">{{ profile.college }}</h4>
+                                    <p class="medium-small grey-text">學院</p>
+                                </div>
+                                <div class="col l2 s12 center-align">
+                                    <h4 class="card-title">{{ profile.department }}</h4>
+                                    <p class="medium-small grey-text">學系</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action right-align">
+                            <a href="{% url 'cross:profile_update' user.pk %}">編輯</a>
+                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title flow-text grey-text text-darken-4">
+                            {{ profile.zh_name }} | {{ profile.eng_name }} | {{ profile.gender }}  <i class="material-icons right">close</i>
+                        </span>
+                        <ul class="collection flow-text">
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons ">perm_identity</i>
+                                       Student ID
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.student_id }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons">school</i>
+                                        College | Department
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.college }} | {{ profile.department }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons ">contact_mail</i>
+                                        Email
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.primary_email }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons ">live_help</i>
+                                        Reason
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.reason }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons ">web</i>
+                                        Personal page
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.personal_page }}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        <i class="material-icons ">place</i>
+                                        Address
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.address }} {% lorem %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col l5 s12 grey-text darken-1">
+                                        More info
+                                    </div>
+                                    <div class="col l7 s12 grey-text text-darken-4 right-align">
+                                        {{ profile.more_info }} {% lorem %}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+{#                        <p class="flow-text">{{ profile.student_id }}</p>#}
+{#                        <p class="flow-text">{{ profile.college }} | {{ profile.department }}</p>#}
+{#                        <p class="flow-text">{{ profile.primary_email }}</p>#}
+{#                        <p class="flow-text">{{ profile.reason }}</p>#}
+{#                        <p class="flow-text">{{ profile.address }}</p>#}
+{#                        <p class="flow-text">{{ profile.personal_page }}</p>#}
+{#                        <p class="flow-text">{{ profile.more_info }}</p>#}
+                    </div>
+                </div>
+            </div>
+            {#            <table>#}
+            {#                <tbody class="align-left">#}
+            {#                <tr>#}
+            {#                    <td>中文姓名</td>#}
+            {#                    <td>{{ profile.zh_name }}</td>#}
+            {#                </tr>#}
+            {#                <tr>#}
+            {#                    <td>英文姓名</td>#}
+            {#                    <td>{{ profile.eng_name }}</td>#}
+            {#                </tr>#}
+            {#                </tbody>#}
+            {#            </table>#}
+            {#            <ul class="collection">#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">中文姓名</span>#}
+            {#                    <p>{{ profile.zh_name }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">英文姓名</span>#}
+            {#                    <p>{{ profile.eng_name }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">學號</span>#}
+            {#                    <p>{{ profile.student_id }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">生理性別</span>#}
+            {#                    <p>{{ profile.gender }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">學院</span>#}
+            {#                    <p>{{ profile.college }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">學系</span>#}
+            {#                    <p>{{ profile.department }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">申請理由</span>#}
+            {#                    <p>{{ profile.reason }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">常用電子信箱</span>#}
+            {#                    <p>{{ profile.primary_email }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">個人首頁網址</span>#}
+            {#                    <p>{{ profile.personal_page }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">聯絡地址</span>#}
+            {#                    <p>{{ profile.address }}</p>#}
+            {#                </li>#}
+            {#                <li class="collection-item">#}
+            {#                    <span class="title">更多個人資訊</span>#}
+            {#                    <p>{{ profile.more_info }}</p>#}
+            {#                </li>#}
+            {#            </ul>#}
+        </div>
+    </div>
+{% endblock content %}

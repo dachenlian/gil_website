@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a id="index" href="{% url 'cross:index' %}">簡介</a></li>
+            <li class="tab"><a id="purpose" href="{% url 'cross:purpose' %}">設立宗旨</a></li>
+            <li class="tab"><a id="requirements" href="{% url 'cross:requirements' %}">修業規定</a></li>
+            <li class="tab"><a id="course_info" href="{% url 'cross:course_info' %}">課程資訊</a></li>
+            <li class="tab"><a id="student" href="{% url 'cross:student' %}">學生專區</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="tab"><a id="profile_detail" href="{% url 'cross:profile_detail' user.pk %}">Profile</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock nav %}
+
+{% block content %}
+{{ block.super }}
+{% endblock content %}
+
+{% block javascript %}
+{{ block.super }}
+{% endblock javascript %}
