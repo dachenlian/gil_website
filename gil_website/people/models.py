@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Student(models.Model):
-    profile_picture = models.ImageField(upload_to="uploads")
+    profile_picture = models.ImageField(upload_to="uploads/people/")
     eng_name = models.CharField("English name", max_length=100)
     zh_name = models.CharField("Chinese name", max_length=100)
     email = models.EmailField()

@@ -22,7 +22,11 @@
     <li><a href="{% url 'cross:requirements' %}">修業規定</a></li>
     <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
     <li><a href="{% url 'cross:student' %}">學生專區</a></li>
+     {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">登出</a></li>
+    {% else %}
     <li><a href="{% url 'login' %}">登入</a></li>
+    {% endif %}
 </ul>
 <ul id="cross_dropdown2" class="dropdown-content">
     <li><a href="{% url 'cross:index' %}">簡介</a></li>
@@ -30,7 +34,11 @@
     <li><a href="{% url 'cross:requirements' %}">修業規定</a></li>
     <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
     <li><a href="{% url 'cross:student' %}">學生專區</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">登出</a></li>
+    {% else %}
     <li><a href="{% url 'login' %}">登入</a></li>
+    {% endif %}
 </ul>
 <ul id="people_dropdown1" class="dropdown-content">
     <li><a href="{% url 'people:faculty_list_view' %}">Faculty</a></li>
