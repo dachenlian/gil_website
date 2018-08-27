@@ -141,3 +141,4 @@ THUMBNAIL_ALIASES = {
 }
 
 # LOGIN_REDIRECT_URL = reverse_lazy("cross:profile_detail")
+LOGOUT_REDIRECT_URL = "/"

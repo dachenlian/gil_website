@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block nav %}
+    {{ block.super }}
     <div class="nav-content cyan darken-4">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a id="index" href="{% url 'cross:index' %}">簡介</a></li>
@@ -7,17 +8,54 @@
             <li class="tab"><a id="requirements" href="{% url 'cross:requirements' %}">修業規定</a></li>
             <li class="tab"><a id="course_info" href="{% url 'cross:course_info' %}">課程資訊</a></li>
             <li class="tab"><a id="student" href="{% url 'cross:student' %}">學生專區</a></li>
+
             {% if request.user.is_authenticated %}
-            <li class="tab"><a id="profile_detail" href="{% url 'cross:profile_detail' user.pk %}">Profile</a></li>
+                <li class="tab"><a id="profile_detail" href="{% url 'cross:profile_detail' user.pk %}">檔案和資料</a></li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <ul class="right">
+                    <li class="tab"><a href="{% url 'logout' %}">登出</a></li>
+                </ul>
+            {% else %}
+                <ul>
+                    <li class="tab"><a href="{% url 'login' %}">登入</a></li>
+                </ul>
             {% endif %}
         </ul>
     </div>
 {% endblock nav %}
 
 {% block content %}
-{{ block.super }}
+    {{ block.super }}
 {% endblock content %}
 
 {% block javascript %}
-{{ block.super }}
+    {{ block.super }}
+    <script>
+        $("#cross").closest("li").addClass("active")
+    </script>
+    <script>
+        $(function () {
+            let url = window.location.pathname;
+            if (url.includes("course_info")) {
+                $("a").removeClass("active");
+                $("#course_info").addClass("active");
+            } else if (url.includes("index")) {
+                $("a").removeClass("active");
+                $("#index").addClass("active");
+            } else if (url.includes("profile")) {
+                $("a").removeClass("active");
+                $("#profile_detail").addClass("active");
+            } else if (url.includes("purpose")) {
+                $("a").removeClass("active");
+                $("#purpose").addClass("active");
+            } else if (url.includes("requirements")) {
+                $("a").removeClass("active");
+                $("#requirements").addClass("active");
+            } else if (url.includes("student")) {
+                $("a").removeClass("active");
+                $("#student").addClass("active");
+            }
+        })
+    </script>
 {% endblock javascript %}

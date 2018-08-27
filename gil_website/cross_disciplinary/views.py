@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .forms import SignUpForm, ProfileUpdateForm
 from .models import Profile
@@ -55,10 +56,15 @@ class SignUpView(FormView):
         return redirect(user)
 
 
-class ProfileDetailView(DetailView):
+class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    login_url = reverse_lazy('login')
     model = Profile
     template_name = "cross_disciplinary/profile_detail.html"
     context_object_name = "profile"
+
+    def test_func(self):
+        profile = self.get_object()
+        return profile.id == self.request.user.id
 
 
 class ProfileUpdateView(UpdateView):

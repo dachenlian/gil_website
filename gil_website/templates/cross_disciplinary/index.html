@@ -36,7 +36,5 @@
     </div>
 {% endblock content %}
 {% block javascript %}
-    <script>
-        $("#cross").closest("li").addClass("active")
-    </script>
+    {{ block.super }}
 {% endblock javascript %}
