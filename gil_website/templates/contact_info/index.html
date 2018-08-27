@@ -1,41 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1 class="ui header">Contact Information</h1>
-    <div class="ui two column centered grid">
-        <div class="column slider">
-            <div><img class="ui large fluid image" src="{% static 'contact_info/gil1.jpg' %}" alt=""></div>
-            <div><img class="ui large fluid image" src="{% static 'contact_info/gil2.jpg' %}" alt=""></div>
-            <div><img class="ui large fluid image" src="{% static 'contact_info/gil3.jpg' %}" alt=""></div>
-            <div><img class="ui large fluid image" src="{% static 'contact_info/gil4.jpg' %}" alt=""></div>
-            <div><img class="ui large fluid image" src="{% static 'contact_info/gil5.jpg' %}" alt=""></div>
+    <div class="row">
+        <div class="col s12">
+            <div class="section">
+                <h3>Contact Information</h3>
+                <table class="highlight">
+                    <tbody>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">school</i> Chair</td>
+                        <td>謝舒凱 Shu-kai Hsieh</td>
+                    </tr>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">work</i> Administrative Staff</td>
+                        <td>劉美玲 Meiling Liu (hpliu@ntu.edu.tw)</td>
+                    </tr>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">computer</i> Webmaster</td>
+                        <td>連大成 Richard Lian (r05142009@ntu.edu.tw)</td>
+                    </tr>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">phone</i> Phone</td>
+                        <td>+886-2-33664104 ext. 301</td>
+                    </tr>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">print</i> Fax</td>
+                        <td>+886-2-23635358</td>
+                    </tr>
+                    <tr>
+                        <td class="grey-text text-darken-1"><i class="material-icons">map</i> Address</td>
+                        <td>Graduate Institute of Linguistics, National Taiwan University, No. 1, Sec. 4,
+                            Roosevelt Rd., Taipei, Taiwan (R.O.C.) 10617
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="ui medium middle center aligned selection list">
-        <div class="item">
-            <div class="header">Chair</div>
-            Dr. Hsieh Shu-kai
+    <div class="row">
+        <div class="col l6 s12">
+            <div class="section">
+                <div class="slider z-depth-1">
+                    <ul class="slides">
+                        <li>
+                            <img src="{% static 'contact_info/gil1.jpg' %}" alt="">
+                        </li>
+                        <li>
+                            <img src="{% static 'contact_info/gil2.jpg' %}" alt="">
+                        </li>
+                        <li>
+                            <img src="{% static 'contact_info/gil3.jpg' %}" alt="">
+                        </li>
+                        <li>
+                            <img src="{% static 'contact_info/gil4.jpg' %}" alt="">
+                        </li>
+                        <li>
+                            <img src="{% static 'contact_info/gil5.jpg' %}" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="item">
-            <div class="header">Administrative Staff</div>
-            劉美玲 Meiling Liu
-        </div>
-        <div class="item">
-            <div class="header">Webmaster</div>
-            Richard Lian
-        </div>
-        <div class="item">
-            <div class="header">Phone</div>
-            +886-2-33664104 ext. 301
-        </div>
-        <div class="item">
-            <div class="header">Fax</div>
-            +886-2-23635358
-        </div>
-        <div class="item">
-            <div class="header">Address</div>
-            Graduate Institute of Linguistics, National Taiwan University, No. 1, Sec. 4, Roosevelt Rd., Taipei, Taiwan
-            (R.O.C.) 10617　
+        <div class="col l6 s12">
+            <div class="section">
+                <img class="responsive-img" src="{% static 'contact_info/lexue-map-o.jpg' %}" alt=""
+                     onmouseover="this.src='{% static 'contact_info/lexue-map-a.jpg' %}'"
+                     onmouseout="this.src='{% static 'contact_info/lexue-map-o.jpg' %}'">
+            </div>
         </div>
     </div>
+{% endblock %}
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+            $(".slider").slider({
+                fullWidth: true,
+                height: 300,
+                indicators: false,
+            });
+        })
+    </script>
 {% endblock %}
