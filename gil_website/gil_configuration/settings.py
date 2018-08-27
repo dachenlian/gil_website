@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.urls import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,9 +49,9 @@ INSTALLED_APPS = [
     'contact_info',
     'easy_thumbnails',
     'cross_disciplinary',
-    'materializecssform',
     # 'material.theme.cyan',
     'material',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,5 @@ THUMBNAIL_ALIASES = {
         'avatar': {'size': (1000, 1000), 'crop': 'smart', 'quality': 100},
     },
 }
+
+# LOGIN_REDIRECT_URL = reverse_lazy("cross:profile_detail")

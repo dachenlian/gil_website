@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load material_form %}
+{% block content %}
+    <div class="row">
+        <div class="section">
+            <h3>Login</h3>
+        </div>
+    </div>
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+    <div class="row">
+        <div class="col l6 offset-l3 s12">
+            <div class="card">
+                <div class="card-content center-align">
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {% form form=form %}{% endform %}
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+                <div class="card-action right-align">
+                    <a href="{% url 'password_reset' %}">Lost password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
