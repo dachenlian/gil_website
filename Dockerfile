@@ -6,4 +6,4 @@ ADD . /code/
 RUN pip install pipenv
 WORKDIR /code/gil_website/
 RUN pipenv install --system
-RUN python manage.py collectstatic
+#RUN python manage.py collectstatic

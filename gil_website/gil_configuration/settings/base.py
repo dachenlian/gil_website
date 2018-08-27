@@ -12,22 +12,20 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.urls import reverse_lazy
+from easy_thumbnails.conf import Settings as thumbnail_settings
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-nmnd2$k69b9o1nbbqqh!my6uz&dfm)wx1h04^agc_q1fm5m5!'
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
-
 
 # Application definition
 
@@ -48,6 +46,7 @@ INSTALLED_APPS = [
     'links',
     'contact_info',
     'easy_thumbnails',
+    'image_cropping',
     'cross_disciplinary',
     # 'material.theme.cyan',
     'material',
@@ -139,6 +138,10 @@ THUMBNAIL_ALIASES = {
         'avatar': {'size': (1000, 1000), 'crop': 'smart', 'quality': 100},
     },
 }
+
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
 # LOGIN_REDIRECT_URL = reverse_lazy("cross:profile_detail")
 LOGOUT_REDIRECT_URL = "/"
