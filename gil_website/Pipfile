@@ -6,14 +6,15 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-django = "*"
 mongo = "*"
 "psycopg2" = "*"
 pillow = "*"
-easy-thumbnails = "*"
 python-magic = "*"
 django-material = "*"
-django-image-cropping = "*"
+ipython = "*"
+django-extensions = "*"
+django = "==2.0.8"
+easy-thumbnails = "*"
 
 [requires]
 python_version = "3.7"

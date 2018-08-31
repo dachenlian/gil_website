@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 class Profile(models.Model):
@@ -24,8 +25,7 @@ class Profile(models.Model):
     primary_email = models.EmailField()
     personal_page = models.URLField(blank=True)
     address = models.CharField(max_length=100, blank=True)
-    profile_picture = models.ImageField(upload_to="uploads/cross/",
-                                        blank=True)
+    profile_picture = ThumbnailerImageField(upload_to="uploads/cross/", blank=True)
     more_info = models.TextField(blank=True)
 
     def get_absolute_url(self):

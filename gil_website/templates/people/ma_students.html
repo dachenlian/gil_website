@@ -1,153 +1,171 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load thumbnail %}
+
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+    <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="active" href="#first">First</a></li>
+        <li class="tab"><a href="#second">Second</a></li>
+        <li class="tab"><a href="#third">Third</a></li>
+        <li class="tab"><a href="#fourth">Fourth</a></li>
+        <li class="tab"><a href="#graduated">Graduated</a></li>
+    </ul>
+    </div>
+{% endblock nav %}
 {% block content %}
     <div class="row">
-        <h2>Master Students</h2>
+    <div class="section">
+        <h2>People</h2>
+        <h3>Master Students</h3>
+    </div>
         <div class="divider"></div>
         <div class="section">
-            <h5>First</h5>
-            <div class="col l3 m4 s12">
-                <div class="card large">
-                    <div class="card-image">
-                        <img src="/media/uploads/richard.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <h5>Richard Lian (連大成)</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col l3 m4 s12">
-                <div class="card large">
-                    <div class="card-image">
-                        <img src="/media/uploads/richard.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <h5>Richard Lian (連大成)</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col l3 m4 s12">
-                <div class="card large">
-                    <div class="card-image">
-                        <img src="/media/uploads/richard.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <h5>Richard Lian (連大成)</h5>
+            <h5 id="first">First Year</h5>
+            {% for student in first %}
+                <div class="col l3 m4 s12">
+                    <div class="card" style="height: 600px;">
+                        <div class="card-image">
+                            <img src="{{ student.profile_picture|thumbnail_url:'avatar300x300' }}" alt="">
+                        </div>
+                        <div class="card-content center-align">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                                <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
+                                <a class="grey-text"
+                                   href="mailto:{{ student.email }}">{{ student.email }}
+                                </a>
+                                <br>
+                                <p><strong>Research interests</strong></p>
+                                <p>{{ student.research_interests }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col l3 m4 s12">
-                <div class="card large">
-                    <div class="card-image">
-                        <img src="/media/uploads/richard.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <h5>Richard Lian (連大成)</h5>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
-        {#        {% for student in first %}#}
-        {#            <div class="card">#}
-        {#                <div class="card-image">#}
-        {#                    <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
-        {#                </div>#}
-        {#                <div class="card-content">#}
-        {#                    <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
-        {#                    <div class="meta">#}
-        {#                        <span>{{ student.email }}</span>#}
-        {#                    </div>#}
-        {#                    <div class="description">#}
-        {#                        <p><strong>Research Interests</strong></p>#}
-        {#                        <p>{{ student.research_interests }}</p>#}
-        {#                    </div>#}
-        {#                </div>#}
-        {#            </div>#}
-        {#        {% endfor %}#}
     </div>
-    {#    <div class="ui bottom attached tab segment" data-tab="second">#}
-    {#        <div class="ui four cards stackable">#}
-    {#            {% for student in second %}#}
-    {#                <div class="card">#}
-    {#                    <div class="image">#}
+    <div class="divider"></div>
+    <div class="row">
+        <div class="section">
+            <h5 id="second">Second Year</h5>
+            {% for student in second %}
+                <div class="col l3 m4 s12">
+                    <div class="card" style="height: 600px;">
+                        <div class="card-image">
+                            <img src="{{ student.profile_picture|thumbnail_url:'avatar300x300' }}" alt="">
+                        </div>
+                        <div class="card-content center-align">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                                <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
+                                <a class="grey-text"
+                                   href="mailto:{{ student.email }}">{{ student.email }}
+                                </a>
+                                <br>
+                                <p><strong>Research interests</strong></p>
+                                <p>{{ student.research_interests }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="section">
+            <h5 id="third">Third Year</h5>
+            {% for student in third %}
+                <div class="col l3 m4 s12">
+                    <div class="card" style="height: 600px;">
+                        <div class="card-image">
+                            <img src="{{ student.profile_picture|thumbnail_url:'avatar300x300' }}" alt="">
+                        </div>
+                        <div class="card-content center-align">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                                <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
+                                <a class="grey-text"
+                                   href="mailto:{{ student.email }}">{{ student.email }}
+                                </a>
+                                <br>
+                                <p><strong>Research interests</strong></p>
+                                <p>{{ student.research_interests }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="section">
+            <h5 id="fourth">Fourth Year</h5>
+            {% for student in fourth %}
+                <div class="col l3 m4 s12">
+                    <div class="card" style="height: 600px;">
+                        <div class="card-image">
+                            <img src="{{ student.profile_picture|thumbnail_url:'avatar300x300' }}" alt="">
+                        </div>
+                        <div class="card-content center-align">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                                <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
+                                <a class="grey-text"
+                                   href="mailto:{{ student.email }}">{{ student.email }}
+                                </a>
+                                <br>
+                                <p><strong>Research interests</strong></p>
+                                <p>{{ student.research_interests }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="section">
+            <h5 class="anchor" id="graduated">Graduated</h5>
+            {% for student in graduated %}
+                <div class="col l3 m4 s12">
+                    <div class="card" style="height: 600px;">
+                        <div class="card-image">
+                            <img src="{{ student.profile_picture|thumbnail_url:'avatar300x300' }}" alt="">
+                        </div>
+                        <div class="card-content center-align">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                                <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
+                                <a class="grey-text"
+                                   href="mailto:{{ student.email }}">{{ student.email }}
+                                </a>
+                                <br>
+                                <p><strong>Research interests</strong></p>
+                                <p>{{ student.research_interests }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {#                <div class="card horizontal">#}
+    {#                    <div class="card-image">#}
     {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
     {#                    </div>#}
-    {#                    <div class="content">#}
-    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
-    {#                        <div class="meta">#}
-    {#                            <span>{{ student.email }}</span>#}
-    {#                        </div>#}
-    {#                        <div class="description">#}
-    {#                            <p><strong>Research Interests</strong></p>#}
-    {#                            <p>{{ student.research_interests }}</p>#}
-    {#                        </div>#}
+    {#                    <div class="card-content">#}
+    {#                        <span class="card-title">{{ student.eng_name }} {{ student.zh_name }}</span>#}
+    {#                        <span><i class="material-icons">email</i> <a class="teal-text text-darken-4"#}
+    {#                                                                     href="mailto:{{ student.email }}">{{ student.email }}</a></span>#}
+    {#                        <p><strong>Research interests</strong></p>#}
+    {#                        <p>{{ student.research_interests }}</p>#}
     {#                    </div>#}
     {#                </div>#}
-    {#            {% endfor %}#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    <div class="ui bottom attached tab segment" data-tab="third">#}
-    {#        <div class="ui four cards stackable">#}
-    {#            {% for student in third%}#}
-    {#                <div class="card">#}
-    {#                    <div class="image">#}
-    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
-    {#                    </div>#}
-    {#                    <div class="content">#}
-    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
-    {#                        <div class="meta">#}
-    {#                            <span>{{ student.email }}</span>#}
-    {#                        </div>#}
-    {#                        <div class="description">#}
-    {#                            <p><strong>Research Interests</strong></p>#}
-    {#                            <p>{{ student.research_interests }}</p>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            {% endfor %}#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    <div class="ui bottom attached tab segment" data-tab="fourth">#}
-    {#        <div class="ui four cards stackable">#}
-    {#            {% for student in fourth %}#}
-    {#                <div class="card">#}
-    {#                    <div class="image">#}
-    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
-    {#                    </div>#}
-    {#                    <div class="content">#}
-    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
-    {#                        <div class="meta">#}
-    {#                            <span>{{ student.email }}</span>#}
-    {#                        </div>#}
-    {#                        <div class="description">#}
-    {#                            <p><strong>Research Interests</strong></p>#}
-    {#                            <p>{{ student.research_interests }}</p>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            {% endfor %}#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    <div class="ui bottom attached tab segment" data-tab="graduated">#}
-    {#        <div class="ui four cards stackable">#}
-    {#            {% for student in graduated %}#}
-    {#                <div class="card">#}
-    {#                    <div class="image">#}
-    {#                        <img src="{{ student.profile_picture|thumbnail_url:'avatar' }}" alt="">#}
-    {#                    </div>#}
-    {#                    <div class="content">#}
-    {#                        <span class="header">{{ student.eng_name }} {{ student.zh_name }}</span>#}
-    {#                        <div class="meta">#}
-    {#                            <span>{{ student.email }}</span>#}
-    {#                        </div>#}
-    {#                        <div class="description">#}
-    {#                            <p><strong>Research Interests</strong></p>#}
-    {#                            <p>{{ student.research_interests }}</p>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            {% endfor %}#}
-    {#        </div>#}
-    {#    </div>#}
 {% endblock content %}
-
+{% block javascript %}
+    <script>
+    $("a").click(function() {
+        $("a").removeClass("active");
+        $( this ).addClass("active");
+    })
+    </script>
+{% endblock javascript %}
