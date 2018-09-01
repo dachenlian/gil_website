@@ -81,3 +81,11 @@
         </div>
     </div>
 {% endblock content %}
+{% block javascript %}
+    <script>
+        $("a").click(function() {
+            $("a").removeClass("active");
+            $( this ).addClass("active");
+        })
+    </script>
+{% endblock javascript %}
