@@ -1,8 +1,61 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block full-width %}
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="{% static 'people/notebookultrawide.jpg' %}" alt="">
+            </li>
+        </ul>
+    </div>
+{% endblock full-width %}
 {% block content %}
     <div class="row">
-        <div class="col s12 m4 l4">
-            <h1>Staff</h1>
+        <div class="section">
+            <h2>People</h2>
+            <h3>Staff</h3>
         </div>
+        <div class="divider"></div>
+    <div class="section">
+        <table class="highlight responsive-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Office Hours</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>劉美玲 Mei-ling Liu</td>
+                <td>助教</td>
+                <td>33664104 #301</td>
+                <td>hpliu@ntu.edu.tw</td>
+                <td>9:00 - 17:00, MON - FRI</td>
+            </tr>
+            <tr>
+                <td>劉嘉蘭 Jia-lan Liu</td>
+                <td>助理</td>
+                <td>33664104 #311</td>
+                <td>NA</td>
+                <td>9:00 - 12:00, MON - FRI</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
     </div>
 {% endblock %}
+{% block javascript %}
+    <script>
+    $(document).ready(function(){
+        $('.slider').slider({
+            indicators: false,
+            fullWidth: true,
+            height: 500,
+        });
+    })
+    </script>
+{% endblock javascript %}

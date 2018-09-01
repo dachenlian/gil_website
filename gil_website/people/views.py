@@ -1,4 +1,5 @@
 from django.views.generic.list import ListView
+from django.views.generic import TemplateView
 from .models import MasterStudent, DoctorateStudent, Faculty, Staff
 
 
@@ -23,14 +24,26 @@ class DoctorateStudentListView(ListView):
     context_object_name = 'students'
     template_name = 'people/phd_students.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current'] = DoctorateStudent.objects.filter(year_of_study='CURRENT')
+        context['graduated'] = DoctorateStudent.objects.filter(year_of_study='GRAD')
+        return context
 
-class FacultyListView(ListView):
+
+class FacultyListView(TemplateView):
     model = Faculty
-    context_object_name = 'faculty_members'
+    # context_object_name = 'faculty_members'
     template_name = 'people/faculty.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current'] = Faculty.objects.filter(status='CURRENT')
+        context['retired'] = Faculty.objects.filter(status='RETIRED')
+        return context
 
-class StaffListView(ListView):
+
+class StaffListView(TemplateView):
     model = Staff
     context_object_name = 'staff_members'
     template_name = 'people/staff.html'

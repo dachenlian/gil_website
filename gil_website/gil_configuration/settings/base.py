@@ -135,8 +135,9 @@ STATICFILES_DIRS = [
 
 THUMBNAIL_ALIASES = {
     '': {
-        'avatar150x150': {'size': (150, 150), 'crop': True, 'quality': 100},
-        'avatar300x300': {'size': (500, 500), 'crop': True, 'quality': 100},
+        'avatar150x150': {'size': (150, 150), 'crop': True, 'quality': 100, 'upscale': True},
+        'avatar200x200': {'size': (200, 200), 'crop': True, 'quality': 100, 'upscale': True},
+        'avatar500x500': {'size': (500, 500), 'crop': True, 'quality': 100, 'upscale': True},
     },
 }
 

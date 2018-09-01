@@ -2,13 +2,14 @@
 {% load static %}
 {% block full-width %}
     <div class="slider">
-    <ul class="slides">
-        <li><img src="{% static 'homepage/bookcase.jpg' %}" alt=""></li>
-        <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>
-        <li><img src="{% static 'homepage/books.jpg' %}" alt=""></li>
-    </ul>
-    <br><br>
-{% endblock %}
+        <ul class="slides">
+            <li><img src="{% static 'homepage/bookcase.jpg' %}" alt=""></li>
+            <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>
+            <li><img src="{% static 'homepage/books.jpg' %}" alt=""></li>
+        </ul>
+        <br><br>
+    </div>
+{% endblock full-width %}
 {% block content %}
     <div class="row">
         <div class="col l6 s12">
@@ -46,6 +47,4 @@
             </ul>
         </div>
     </div>
-{% endblock %}
-{% block script %}
-{% endblock %}
+{% endblock content %}

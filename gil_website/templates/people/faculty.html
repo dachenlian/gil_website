@@ -1,9 +1,83 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block nav %}
+    <div class="nav-content cyan darken-4">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#current">Current</a></li>
+            <li class="tab"><a href="#retired">Retired</a></li>
+        </ul>
+    </div>
+{% endblock nav %}
 
 {% block content %}
     <div class="row">
-        <div class="col s12 m4 l4">
-            <h1>Faculty</h1>
+        <div class="section">
+            <h2>People</h2>
+            <h3>Faculty</h3>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <h5 id="current">Current</h5>
+            {% for c in current %}
+                <div class="col s12 m12 l6">
+                    <div class="card horizontal">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator responsive-img"
+                                 src="{{ c.profile_picture|thumbnail_url:'avatar200x200' }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ c.eng_name }} {{ c.zh_name }}<i
+                                    class="material-icons right">more_vert</i></span>
+                            <p class="grey-text text-darken-4">{{ c.title }}</p>
+                            <p class="grey-text text-darken-4"><a
+                                    href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">More info <i class="material-icons right">close</i></span>
+                            <p><a href="{{ c.cv_upload }}">View CV</a></p>
+                            <p><i class="material-icons">phone</i> {{ c.phone }}</p>
+                            <p><i class="material-icons">print</i> {{ c.fax }}</p>
+                            <p><i class="material-icons">web</i> <a href="{{ c.website }}">{{ c.website }}</a></p>
+                            <p><i class="material-icons">school</i> {{ c.education }}</p>
+                            <p><i class="material-icons">book</i>{{ c.research_interests }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-{% endblock %}
+    <div class="row">
+        <div class="divider"></div>
+        <div class="section">
+            <h5 id="retired">Retired</h5>
+            {% for c in retired %}
+                <div class="col s12 m12 l6">
+                    <div class="card horizontal">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator responsive-img"
+                                 src="{{ c.profile_picture|thumbnail_url:'avatar200x200' }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ c.eng_name }} {{ c.zh_name }}<i
+                                    class="material-icons right">more_vert</i></span>
+                            <p class="grey-text text-darken-4">{{ c.title }}</p>
+                            <p class="grey-text text-darken-4"><a
+                                    href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">More info <i class="material-icons right">close</i></span>
+                            <p><a href="{{ c.cv_upload }}">View CV</a></p>
+                            <p><i class="material-icons">phone</i> {{ c.phone }}</p>
+                            <p><i class="material-icons">print</i> {{ c.fax }}</p>
+                            <p><i class="material-icons">web</i> <a href="{{ c.website }}">{{ c.website }}</a></p>
+                            <p><i class="material-icons">school</i> {{ c.education }}</p>
+                            <p><i class="material-icons">book</i>{{ c.research_interests }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
