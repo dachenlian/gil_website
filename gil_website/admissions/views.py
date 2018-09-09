@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def index(request):
-    return render(request, "admissions/index.html")
+class IndexView(TemplateView):
+    template_name = "admissions/index.html"
 
+
+class ZhenshiView(TemplateView):
+    template_name = "admissions/zhenshi.html"

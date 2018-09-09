@@ -54,8 +54,9 @@
 </ul>
 <div class="navbar-fixed">
     <nav class="nav-extended">
+        <img style="position:fixed; top:0; width: 100%;" src="{% static 'cross_disciplinary/chairssuperwide.jpg' %}" alt="">
         <div class="nav-wrapper cyan darken-4">
-            <a href="/" class="brand-logo">GIL</a>
+            <a href="/" class="brand-logo"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a id="intro" class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
@@ -66,7 +67,7 @@
                 <i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a id="courses" class="item" href="{% url 'courses:index' %}">Courses</a></li>
                 <li><a id="funding" class="item" href="{% url 'funding:index' %}">Funding</a></li>
-                <li><a id="newsletter" class="item" href="{% url 'newsletter:index' %}">Newsletter</a></li>
+                <li><a id="newsletter" class="item" href="{% url 'newsletter:index' %}" style="display: none;">Newsletter</a></li>
                 <li><a id="links" class="item" href="{% url 'links:index' %}">Links</a></li>
                 <li><a id="contact_info" class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
             </ul>
@@ -76,17 +77,17 @@
     </nav>
 </div>
 <ul class="sidenav" id="mobile-demo">
-    <li><a id="intro" class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
+    <li><a class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown2">People
     <i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a id="admissions" class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
-    <li><a id="cross" class="dropdown-trigger" href="#!" data-target="cross_dropdown2">Cross-Disciplinary Program
+    <li><a class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
+    <li><a class="dropdown-trigger" href="#!" data-target="cross_dropdown2">Cross-Disciplinary Program
         <i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a id="courses" class="item" href="{% url 'courses:index' %}">Courses</a></li>
-    <li><a id="funding" class="item" href="{% url 'funding:index' %}">Funding</a></li>
-    <li><a id="newsletter" class="item" href="{% url 'newsletter:index' %}">Newsletter</a></li>
-    <li><a id="links" class="item" href="{% url 'links:index' %}">Links</a></li>
-    <li><a id="contact_info" class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
+    <li><a class="item" href="{% url 'courses:index' %}">Courses</a></li>
+    <li><a class="item" href="{% url 'funding:index' %}">Funding</a></li>
+    <li><a class="item" href="{% url 'newsletter:index' %}" style="display: none;">Newsletter</a></li>
+    <li><a class="item" href="{% url 'links:index' %}">Links</a></li>
+    <li><a class="item" href="{% url 'contact_info:index' %}">Contact Information</a></li>
 </ul>
 <main>
     {% block full-width %}
@@ -139,7 +140,8 @@
         $(".materialboxed").materialbox();
         $(".slider").slider({
             fullWidth: true,
-            height: 500,
+            height: 300,
+            indicators: false,
         });
         $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
         $('select').formSelect();
