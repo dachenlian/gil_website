@@ -19,3 +19,8 @@ i {
     margin: -120px 0 0;
 }
 
+@media (min-width: 992px) {
+    a.brand-logo {
+        padding-left: 50px;
+    }
+}
