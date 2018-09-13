@@ -17,7 +17,7 @@ class SignUpForm(UserCreationForm):
     zh_name = forms.CharField(max_length=100, label="中文姓名")
     gender = forms.ChoiceField(choices=GENDER_CHOICES, label="生理性別")
     college = forms.CharField(max_length=100, label="學院", help_text="文學院")
-    department = forms.CharField(max_length=100, label="學院", help_text="文學院")
+    department = forms.CharField(max_length=100, label="學系", help_text="語言學研究所")
     reason = forms.CharField(widget=forms.Textarea, label="申請原因")
     primary_email = forms.EmailField(label="常用電子信箱")
     personal_page = forms.URLField(required=False, label="個人首頁網址 (可不填)")

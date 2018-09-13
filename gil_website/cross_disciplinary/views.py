@@ -34,6 +34,11 @@ class SignUpView(FormView):
     template_name = "cross_disciplinary/signup.html"
     form_class = SignUpForm
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('cross:index')
+        return super().get(request, *args, **kwargs)
+
     def form_valid(self, form):
         user = form.save()
         user.refresh_from_db()  # load the profile instance created by the signal
@@ -53,7 +58,9 @@ class SignUpView(FormView):
         user = authenticate(username=user.username, password=raw_password)
         login(self.request, user)
         messages.add_message(self.request, messages.SUCCESS, "User successfully added!")
-        return redirect(user)
+        return redirect(reverse_lazy('cross:profile_detail', kwargs={'pk': user.id}))
+        # return super().form_valid(form)
+        # return self.request.build_absolute_uri(reverse_lazy('cross:profile_detail', kwargs={'pk': user.id}))
 
 
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
