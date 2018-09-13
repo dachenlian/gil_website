@@ -35,7 +35,7 @@ services:
       - .:/code
       - ./gil_website/static:/static
       - ./gil_website/media:/media
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     depends_on:
       - db
