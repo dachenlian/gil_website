@@ -1,22 +1,22 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx
-    container_name: gil_nginx
-    ports:
-      - "8002:8000"
-        #    environment:
-        #      - NGINX_HOST=140.112.147.121
-        #      - NGINX_PORT=8002  
-    volumes:
-      - .:/code
-      - ./config/nginx:/etc/nginx/conf.d
-      - ./gil_website/static:/static
-      - ./gil_website/media:/media
-        # - ./config/
-    depends_on:
-      - web
+        #  nginx:
+        #    image: nginx
+        #    container_name: gil_nginx
+        #    ports:
+        #      - "8002:8000"
+        #        #    environment:
+        #        #      - NGINX_HOST=140.112.147.121
+        #        #      - NGINX_PORT=8002  
+        #    volumes:
+        #      - .:/code
+        #      - ./config/nginx:/etc/nginx/conf.d
+        #      - ./gil_website/static:/static
+        #      - ./gil_website/media:/media
+        #        # - ./config/
+        #    depends_on:
+        #      - web
   db:
     image: postgres
     container_name: gil_postgres
