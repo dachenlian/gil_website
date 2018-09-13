@@ -1,20 +1,39 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx
+    container_name: gil_nginx
+    ports:
+      - "8002:8000"
+        #    environment:
+        #      - NGINX_HOST=140.112.147.121
+        #      - NGINX_PORT=8002  
+    volumes:
+      - .:/code
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./gil_website/static:/static
+        # - ./config/
+    depends_on:
+      - web
   db:
     image: postgres
+    container_name: gil_postgres
     restart: always
-    volumes:
-     - ./postgres-data:/var/lib/postgresql/data
+    # volumes:
+    #  - ./postgres-data:/var/lib/postgresql/data/
   web:
     build: .
+    container_name: gil_django
     restart: always
     env_file:
       - web-variables.env
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000"
+    #command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn gil_website.gil_configuration.wsgi"
     volumes:
-    - .:/code
-    ports:
-    - "8000:8000"
+      - .:/code
+      - ./gil_website/static:/static
+    expose:
+      - "8000"
     depends_on:
-    - db
+      - db
