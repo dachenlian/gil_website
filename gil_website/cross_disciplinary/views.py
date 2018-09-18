@@ -53,6 +53,7 @@ class SignUpView(FormView):
         user.profile.address = form.cleaned_data.get('address')
         user.profile.profile_picture = form.cleaned_data.get('profile_picture')
         user.profile.more_info = form.cleaned_data.get('more_info')
+        user.email = form.cleaned_data.get('primary_email')
         user.save()
         raw_password = form.cleaned_data.get('password1')
         user = authenticate(username=user.username, password=raw_password)

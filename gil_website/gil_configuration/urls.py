@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^contactinfo', include('contact_info.urls', namespace='contact_info')),
     url(r'(?P<file>uploads/[\w/.]+)', download, name='download'),
     url(r'^cross_disciplinary/', include('cross_disciplinary.urls', namespace='cross')),
-    url(r'^accounts/login/', views.LoginView.as_view(), name='login'),
+    url(r'^accounts/login/', views.LoginView.as_view(), name='signin'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 

@@ -22,7 +22,7 @@
         <div class="col l6 offset-l3 s12">
             <div class="card">
                 <div class="card-content">
-                    <form method="post" action="{% url 'login' %}">
+                    <form method="post" action="{% url 'signin' %}">
                         {% csrf_token %}
                         {% form form=form %}{% endform %}
                         <button class="btn waves-effect waves-light" type="submit" name="action">Login

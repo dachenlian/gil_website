@@ -29,8 +29,8 @@ services:
     restart: always
     env_file:
       - web-variables.env
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000"
-    #command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn gil_website.gil_configuration.wsgi"
+        #command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
       - ./gil_website/static:/static
