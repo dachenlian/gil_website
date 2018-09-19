@@ -1,50 +1,112 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block full-width %}
-{#    <div class="slider">#}
-{#        <ul class="slides">#}
+    <div class="slider">
+        <ul class="slides">
 {#            <li><img src="{% static 'homepage/bookcase.jpg' %}" alt=""></li>#}
 {#            <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>#}
 {#            <li><img src="{% static 'homepage/books.jpg' %}" alt=""></li>#}
-{#        </ul>#}
-{#        <br><br>#}
-{#    </div>#}
+            <li><img src="{% static 'homepage/ultrawidehallway.jpg' %}" alt=""></li>
+        </ul>
+        <br><br>
+    </div>
 {% endblock full-width %}
 {% block content %}
     <div class="row">
-        <div class="col l6 s12">
-            <ul class="collection with-header">
-                <li class="collection-header"><h4>News</h4></li>
-                {% for item in news %}
-                    <li class="collection-item">
-                        {% if item.link %}
-                            <a href="{{ item.link }}">{{ item.time_posted }}{{ item.title }}</a>
-                        {% elif item.file %}
-                            <a href="{{ item.file }}">{{ item.title }}</a>
-                        {% else %}
-                            {{ item.title }}
-                            {{ item.time_posted }}
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+        {# SIMPLE VERSION #}
+    <div class="col s4">
+            <h5>About Us</h5>
+            <div class="divider cyan darken-4"></div>
+            <p>The Graduate Institute of Linguistics was established in August 1994,
+                initially offering a Master's program leading to a M.A. degree.
+                A doctoral program began in August 2002. Graduate study in Linguistics
+                at NTU is designed to provide students with a solid foundation in the
+                analytical and theoretical aspects of Linguistics, especially in
+                Cognitive Linguistics. Cognitive Linguistics, Austronesian Linguistics,
+                Discourse Analysis, and Psycholinguistics constitute the major foci
+                of research activities of our faculty.</p>
+    </div>
+        <div class="col s4">
+            <h5>News</h5>
+            <div class="divider cyan darken-4"></div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
         </div>
-        <div class="col l6 s12">
-            <ul class="collection with-header">
-                <li class="collection-header"><h4>Talks/Events</h4></li>
-                {% for item in talks %}
-                    <li class="collection-item">
-                        {% if item.link %}
-                            <a href="{{ item.link }}">{{ item.title }}</a>
-                        {% elif item.file %}
-                            <a href="{{ item.file }}">{{ item.title }}</a>
-                        {% else %}
-                            {{ item.title }}
-                            {{ item.time_posted }}
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+        <div class="col s4">
+            <h5>Upcoming Events</h5>
+            <div class="divider teal darken-4"></div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
+            <div class="section">
+                <strong>Sep 14, 2018</strong> - {% lorem %}
+            </div>
         </div>
+
+        {# LOTS OF IMAGES VERSION #}
+{#    <div class="col s6">#}
+{#        <div class="card">#}
+{#            <div class="card-image">#}
+{#                <img src="{% static 'homepage/admissions.jpg' %}" alt="">#}
+{#            </div>#}
+{#            <div class="card-content">#}
+{#                <span class="card-title">Admissions</span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#        <div class="col s6">#}
+{#            <div class="card">#}
+{#                <div class="card-image">#}
+{#                    <img src="{% static 'homepage/aboutus.jpg' %}" alt="">#}
+{#                </div>#}
+{#                <div class="card-content">#}
+{#                    <span class="card-title">About Us</span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="col l6 s12">#}
+{#            <ul class="collection with-header">#}
+{#                <li class="collection-header"><h4>News</h4></li>#}
+{#                {% for item in news %}#}
+{#                    <li class="collection-item">#}
+{#                        {% if item.link %}#}
+{#                            <a href="{{ item.link }}">{{ item.time_posted }}{{ item.title }}</a>#}
+{#                        {% elif item.file %}#}
+{#                            <a href="{{ item.file }}">{{ item.title }}</a>#}
+{#                        {% else %}#}
+{#                            {{ item.title }}#}
+{#                            {{ item.time_posted }}#}
+{#                        {% endif %}#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#        <div class="col l6 s12">#}
+{#            <ul class="collection with-header">#}
+{#                <li class="collection-header"><h4>Talks/Events</h4></li>#}
+{#                {% for item in talks %}#}
+{#                    <li class="collection-item">#}
+{#                        {% if item.link %}#}
+{#                            <a href="{{ item.link }}">{{ item.title }}</a>#}
+{#                        {% elif item.file %}#}
+{#                            <a href="{{ item.file }}">{{ item.title }}</a>#}
+{#                        {% else %}#}
+{#                            {{ item.title }}#}
+{#                            {{ item.time_posted }}#}
+{#                        {% endif %}#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
     </div>
 {% endblock content %}
