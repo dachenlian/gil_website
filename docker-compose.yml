@@ -12,8 +12,8 @@ services:
     volumes:
       - .:/code
       - ./config/nginx:/etc/nginx/conf.d
-      - ./gil_website/static:/static
-      - ./gil_website/media:/media
+      - ./staticfiles:/code/staticfiles
+      - ./media:/code/gil_website/media
         # - ./config/
     depends_on:
       - web
@@ -33,8 +33,8 @@ services:
     #command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn gil_website.gil_configuration.wsgi"
     volumes:
       - .:/code
-      - ./gil_website/static:/static
-      - ./gil_website/media:/media
+      - ./staticfiles:/code/staticfiles
+      - ./media:/code/gil_website/media
     expose:
       - "8000"
     depends_on:

@@ -31,7 +31,6 @@ urlpatterns = [
     url(r'^admissions/', include('admissions.urls', namespace='admissions')),
     url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^funding/', include('funding.urls', namespace='funding')),
-    url(r'^newsletter/', include('newsletter.urls', namespace='newsletter')),
     url(r'^links/', include('links.urls', namespace='links')),
     url(r'^contactinfo', include('contact_info.urls', namespace='contact_info')),
     url(r'(?P<file>uploads/[\w/.]+)', download, name='download'),

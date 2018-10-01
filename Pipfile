@@ -17,6 +17,7 @@ django = "==2.0.8"
 easy-thumbnails = "*"
 gunicorn = "*"
 uwsgi = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

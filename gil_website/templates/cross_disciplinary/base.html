@@ -18,7 +18,7 @@
                 </ul>
             {% else %}
                 <ul>
-                    <li class="tab"><a href="{% url 'login' %}">登入</a></li>
+                    <li class="tab"><a id="login" href="{% url 'login' %}">登入</a></li>
                 </ul>
             {% endif %}
         </ul>
@@ -55,6 +55,9 @@
             } else if (url.includes("student")) {
                 $("a").removeClass("active");
                 $("#student").addClass("active");
+            } else if (url.includes("login")) {
+                $("a").removeClass("active");
+                $("#login").addClass("active");
             }
         })
     </script>
