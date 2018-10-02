@@ -3,12 +3,91 @@
 
 {% block content %}
     <div style="margin-top: 50px;" class="row">
-        <div class="section">
             <h3>課程資訊</h3>
-            <h4>課程列表</h4>
             <div class="divider"></div>
-            <div class="flow-text">
-            </div>
+    <div class="section">
+        <h5>Level One</h5>
+    <div class="divider"></div>
+        <table class="striped highlight responsive-table centered">
+            <thead>
+            <tr>
+                <th>課程名稱</th>
+                <th>學分數</th>
+                <th>必/選</th>
+                <th>開設科系</th>
+                <th>授課教師</th>
+                <th>備註</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for course in one %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td>{{ course.credit }}</td>
+                <td>{{ course.required }}</td>
+                <td>{{ course.department }}</td>
+                <td>{{ course.professor }}</td>
+                <td>{{ course.note }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        <div class="section">
+            <h5>Level Two</h5>
+        <div class="divider"></div>
+            <table class="striped highlight responsive-table centered">
+                <thead>
+                <tr>
+                    <th>課程名稱</th>
+                    <th>學分數</th>
+                    <th>必/選</th>
+                    <th>開設科系</th>
+                    <th>授課教師</th>
+                    <th>備註</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for course in two %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.credit }}</td>
+                    <td>{{ course.required }}</td>
+                    <td>{{ course.department }}</td>
+                    <td>{{ course.professor }}</td>
+                    <td>{{ course.note }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <h5>Level Three</h5>
+        <div class="divider"></div>
+            <table class="striped highlight responsive-table centered">
+                <thead>
+                <tr>
+                    <th>課程名稱</th>
+                    <th>學分數</th>
+                    <th>必/選</th>
+                    <th>開設科系</th>
+                    <th>授課教師</th>
+                    <th>備註</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for course in three %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.credit }}</td>
+                    <td>{{ course.required }}</td>
+                    <td>{{ course.department }}</td>
+                    <td>{{ course.professor }}</td>
+                    <td>{{ course.note }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock content %}

@@ -14,6 +14,10 @@ class Course(models.Model):
     required = models.CharField(max_length=255)
     professor = models.CharField(max_length=255)
     note = models.TextField(blank=True, default="")
+    selected = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 
 class Profile(models.Model):

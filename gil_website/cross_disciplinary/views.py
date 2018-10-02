@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .models import Course
 
 from .forms import SignUpForm, ProfileUpdateForm
 from .models import Profile
@@ -24,6 +25,13 @@ class RequirementsView(TemplateView):
 
 class CourseInfoView(TemplateView):
     template_name = "cross_disciplinary/course_info.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['one'] = Course.objects.filter(level=1)
+        context['two'] = Course.objects.filter(level=2)
+        context['three'] = Course.objects.filter(level=3)
+        return context
 
 
 class StudentAreaView(TemplateView):
