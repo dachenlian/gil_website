@@ -34,7 +34,7 @@ class SignUpForm(UserCreationForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user']
+        exclude = ['user', 'courses']
         labels = {
             'student_id': '學號',
             'eng_name': '英文姓名',

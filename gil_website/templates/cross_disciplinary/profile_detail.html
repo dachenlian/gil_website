@@ -1,6 +1,7 @@
 {% extends 'cross_disciplinary/base.html' %}
 {% load static %}
 {% block content %}
+    {{ block.super }}
     <div class="row">
         <div class="section">
             <h3>Profile</h3>
@@ -40,14 +41,15 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title flow-text grey-text text-darken-4">
-                            {{ profile.zh_name }} | {{ profile.eng_name }} | {{ profile.gender }}  <i class="material-icons right">close</i>
+                            {{ profile.zh_name }} | {{ profile.eng_name }} | {{ profile.gender }}  <i
+                                class="material-icons right">close</i>
                         </span>
                         <ul class="collection flow-text">
                             <li class="collection-item">
                                 <div class="row">
                                     <div class="col l5 s12 grey-text darken-1">
                                         <i class="material-icons ">perm_identity</i>
-                                       Student ID
+                                        Student ID
                                     </div>
                                     <div class="col l7 s12 grey-text text-darken-4 right-align">
                                         {{ profile.student_id }}
@@ -120,13 +122,13 @@
                                 </div>
                             </li>
                         </ul>
-{#                        <p class="flow-text">{{ profile.student_id }}</p>#}
-{#                        <p class="flow-text">{{ profile.college }} | {{ profile.department }}</p>#}
-{#                        <p class="flow-text">{{ profile.primary_email }}</p>#}
-{#                        <p class="flow-text">{{ profile.reason }}</p>#}
-{#                        <p class="flow-text">{{ profile.address }}</p>#}
-{#                        <p class="flow-text">{{ profile.personal_page }}</p>#}
-{#                        <p class="flow-text">{{ profile.more_info }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.student_id }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.college }} | {{ profile.department }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.primary_email }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.reason }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.address }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.personal_page }}</p>#}
+                        {#                        <p class="flow-text">{{ profile.more_info }}</p>#}
                     </div>
                 </div>
             </div>
@@ -189,10 +191,81 @@
             {#                </li>#}
             {#            </ul>#}
         </div>
-    <div class="section">
-        <h3>課程</h3>
-        <h4>已修課程</h4>
-        <button>送出審核</button>
-    </div>
+        <div class="section">
+            <h3>課程</h3>
+            <h4>已修課程</h4>
+            <div class="divider"></div>
+            {% if selected %}
+                <table class="striped highlight responsive-table centered">
+                    <thead>
+                    <tr>
+                        <th>課程名稱</th>
+                        <th>學分數</th>
+                        <th>必/選</th>
+                        <th>開設科系</th>
+                        <th>授課教師</th>
+                        <th>備註</th>
+                        <th>刪除</th>
+                    </tr>
+                    </thead>
+                    {% for course in selected %}
+                        <tr>
+                            <td>{{ course.name }}</td>
+                            <td>{{ course.credit }}</td>
+                            <td>{{ course.required }}</td>
+                            <td>{{ course.department }}</td>
+                            <td>{{ course.professor }}</td>
+                            <td>{{ course.note }}</td>
+                            <td>
+                                <form action="{% url 'cross:profile_detail' user.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="course" value="{{ course.name }}">
+                                    <input type="hidden" name="course_boolean" value="False">
+                                    <button>Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No courses selected!</p>
+            {% endif %}
+            <button>送出審核</button>
+            <h4>未修課程</h4>
+            <div class="divider"></div>
+            {% if not_selected %}
+                <table class="striped highlight responsive-table centered">
+                    <thead>
+                    <tr>
+                        <th>課程名稱</th>
+                        <th>學分數</th>
+                        <th>必/選</th>
+                        <th>開設科系</th>
+                        <th>授課教師</th>
+                        <th>備註</th>
+                        <th>增加</th>
+                    </tr>
+                    </thead>
+                    {% for course in not_selected %}
+                        <tr>
+                            <td>{{ course.name }}</td>
+                            <td>{{ course.credit }}</td>
+                            <td>{{ course.required }}</td>
+                            <td>{{ course.department }}</td>
+                            <td>{{ course.professor }}</td>
+                            <td>{{ course.note }}</td>
+                            <td>
+                                <form action="{% url 'cross:profile_detail' user.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="course" value="{{ course.name }}">
+                                    <input type="hidden" name="course_boolean" value="True">
+                                    <button>Add</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
     </div>
 {% endblock content %}

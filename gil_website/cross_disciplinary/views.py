@@ -77,15 +77,37 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     template_name = "cross_disciplinary/profile_detail.html"
     context_object_name = "profile"
 
+    def get_context_data(self, **kwargs):
+        profile = Profile.objects.get(id=self.request.user.id)
+        context = super().get_context_data(**kwargs)
+        context['selected'] = profile.courses.all()
+        context['not_selected'] = Course.objects.exclude(pk__in=profile.courses.all())
+        return context
+
     def test_func(self):
         profile = self.get_object()
         return profile.id == self.request.user.id
+
+    def post(self, request, pk):
+        course = request.POST.get('course', None)
+        course = Course.objects.get(name=course)
+        course_boolean = request.POST.get('course_boolean', None) == "True"
+        profile = Profile.objects.get(id=request.user.id)
+        if course:
+            if course_boolean:
+                profile.courses.add(course)
+            else:
+                profile.courses.remove(course)
+        return redirect("cross:profile_detail", pk=request.user.pk)
 
 
 class ProfileUpdateView(UpdateView):
     model = Profile
     template_name = "cross_disciplinary/profile_update_form.html"
     form_class = ProfileUpdateForm
+
+    class Meta:
+        exclude = ('courses', )
 
     def form_valid(self, form):
         user = form.save()
