@@ -1,21 +1,26 @@
 {% extends 'cross_disciplinary/base.html' %}
 {% load static %}
+{% block full-width %}
+    <div class="slider">
+    <ul class="slides">
+        <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>
+    </ul>
+    </div>
+{% endblock full-width %}
 {% block content %}
     {{ block.super }}
     <div class="row">
         <div class="section">
-            <h3>Profile</h3>
+            <h3>個人資料</h3>
             <div class="col s12">
                 <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="{% static 'cross_disciplinary/chairssuperwide.jpg' %}" alt="">
-                    </div>
                     <div class="card-stacked">
-                        <div class="card-content">
-                            <div class="row valign-wrapper">
+                        <div class="card-content activator">
+                            <div class="row valign-wrapper activator">
                                 <div class="col l4 s12 center-align">
                                     <img class="circle  responsive-img z-depth-2"
-                                         src="{{ profile.profile_picture }}" alt="">
+                                         src="{% static 'cross_disciplinary/avatar.png' %}">
+{#                                         src="{{ profile.profile_picture }}" alt="">#}
                                 </div>
                                 <div class="col l2 s12 center-align">
                                     <h4 class="card-title">{{ profile.eng_name }}</h4>
@@ -132,64 +137,6 @@
                     </div>
                 </div>
             </div>
-            {#            <table>#}
-            {#                <tbody class="align-left">#}
-            {#                <tr>#}
-            {#                    <td>中文姓名</td>#}
-            {#                    <td>{{ profile.zh_name }}</td>#}
-            {#                </tr>#}
-            {#                <tr>#}
-            {#                    <td>英文姓名</td>#}
-            {#                    <td>{{ profile.eng_name }}</td>#}
-            {#                </tr>#}
-            {#                </tbody>#}
-            {#            </table>#}
-            {#            <ul class="collection">#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">中文姓名</span>#}
-            {#                    <p>{{ profile.zh_name }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">英文姓名</span>#}
-            {#                    <p>{{ profile.eng_name }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">學號</span>#}
-            {#                    <p>{{ profile.student_id }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">生理性別</span>#}
-            {#                    <p>{{ profile.gender }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">學院</span>#}
-            {#                    <p>{{ profile.college }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">學系</span>#}
-            {#                    <p>{{ profile.department }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">申請理由</span>#}
-            {#                    <p>{{ profile.reason }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">常用電子信箱</span>#}
-            {#                    <p>{{ profile.primary_email }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">個人首頁網址</span>#}
-            {#                    <p>{{ profile.personal_page }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">聯絡地址</span>#}
-            {#                    <p>{{ profile.address }}</p>#}
-            {#                </li>#}
-            {#                <li class="collection-item">#}
-            {#                    <span class="title">更多個人資訊</span>#}
-            {#                    <p>{{ profile.more_info }}</p>#}
-            {#                </li>#}
-            {#            </ul>#}
         </div>
         <div class="section">
             <h3>課程</h3>
@@ -221,7 +168,7 @@
                                     {% csrf_token %}
                                     <input type="hidden" name="course" value="{{ course.name }}">
                                     <input type="hidden" name="course_boolean" value="False">
-                                    <button>Remove</button>
+                                    <button style="line-height: 50%;" class="waves-effect waves-light btn rounded red darken-4"><i class="material-icons">cancel</i></button>
                                 </form>
                             </td>
                         </tr>
@@ -230,7 +177,13 @@
             {% else %}
                 <p>No courses selected!</p>
             {% endif %}
-            <button>送出審核</button>
+            <br>
+        <div class="center-align">
+            <form action="">
+                {% csrf_token %}
+                <button class="waves-effect waves-light btn rounded">送出審核<i class="material-icons right">send</i></button>
+            </form>
+        </div>
             <h4>未修課程</h4>
             <div class="divider"></div>
             {% if not_selected %}
@@ -259,7 +212,7 @@
                                     {% csrf_token %}
                                     <input type="hidden" name="course" value="{{ course.name }}">
                                     <input type="hidden" name="course_boolean" value="True">
-                                    <button>Add</button>
+                                    <button style="line-height: 50%" class="waves-effect waves-light btn rounded"><i class="material-icons">add_circle</i></button>
                                 </form>
                             </td>
                         </tr>

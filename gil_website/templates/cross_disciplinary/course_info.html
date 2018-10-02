@@ -1,6 +1,12 @@
 {% extends 'cross_disciplinary/base.html' %}
 {% load static %}
-
+{% block full-width %}
+    <div class="slider">
+    <ul class="slides">
+        <li><img src="{% static 'homepage/books.jpg' %}" alt=""></li>
+    </ul>
+    </div>
+{% endblock full-width %}
 {% block content %}
     {{ block.super }}
     <div style="margin-top: 50px;" class="row">

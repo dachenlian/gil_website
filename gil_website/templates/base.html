@@ -22,10 +22,11 @@
     <li><a href="{% url 'cross:requirements' %}">修業規定</a></li>
     <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
     <li><a href="{% url 'cross:student' %}">學生專區</a></li>
-     {% if user.is_authenticated %}
-    <li><a href="{% url 'logout' %}">登出</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'cross:profile_detail' user.id %}">個人資料</a></li>
+        <li><a href="{% url 'logout' %}">登出</a></li>
     {% else %}
-    <li><a href="{% url 'login' %}">登入</a></li>
+        <li><a href="{% url 'login' %}">登入</a></li>
     {% endif %}
 </ul>
 <ul id="cross_dropdown2" class="dropdown-content">
@@ -35,9 +36,10 @@
     <li><a href="{% url 'cross:course_info' %}">課程資訊</a></li>
     <li><a href="{% url 'cross:student' %}">學生專區</a></li>
     {% if user.is_authenticated %}
-    <li><a href="{% url 'logout' %}">登出</a></li>
+        <li><a href="{% url 'cross:profile_detail' user.id %}">個人資料</a></li>
+        <li><a href="{% url 'logout' %}">登出</a></li>
     {% else %}
-    <li><a href="{% url 'login' %}">登入</a></li>
+        <li><a href="{% url 'login' %}">登入</a></li>
     {% endif %}
 </ul>
 <ul id="people_dropdown1" class="dropdown-content">
@@ -63,8 +65,9 @@
                 <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown1">People
                     <i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a id="admissions" class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
-                <li><a id="cross" class="dropdown-trigger" href="#!" data-target="cross_dropdown1">Cross-Disciplinary Program
-                <i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a id="cross" class="dropdown-trigger" href="#!" data-target="cross_dropdown1">Cross-Disciplinary
+                    Program
+                    <i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a id="courses" class="item" href="{% url 'courses:index' %}">Courses</a></li>
                 <li><a id="funding" class="item" href="{% url 'funding:index' %}">Funding</a></li>
                 <li><a id="links" class="item" href="{% url 'links:index' %}">Links</a></li>
@@ -78,7 +81,7 @@
 <ul class="sidenav" id="mobile-demo">
     <li><a class="item" href="{% url 'introduction:index' %}">Introduction</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="people_dropdown2">People
-    <i class="material-icons right">arrow_drop_down</i></a></li>
+        <i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a class="item" href="{% url 'admissions:index' %}">Admissions</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="cross_dropdown2">Cross-Disciplinary Program
         <i class="material-icons right">arrow_drop_down</i></a></li>

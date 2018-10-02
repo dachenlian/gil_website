@@ -1,9 +1,16 @@
 {% extends 'cross_disciplinary/base.html' %}
 {% load static %}
+{% block full-width %}
+    <div class="slider">
+    <ul class="slides">
+        <li><img src="{% static 'homepage/hallway.jpg' %}" alt=""></li>
+    </ul>
+    </div>
+{% endblock full-width %}
 {% block content %}
     {{ block.super }}
     <div style="margin-top: 50px;" class="row">
-        <div class="col l6 s12">
+        <div class="col l12 s12">
             <div class="section">
                 <h3>設立宗旨</h3>
                 <div class="flow-text">
@@ -17,8 +24,7 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top: 100px;" class="col l6 s12">
-            <h3></h3>
+        <div style="margin-top: 100px;" class="col l12 s12">
             <div class="section">
                 <img style="display: block; margin: 0 auto;" class="materialboxed z-depth-1" width="650"
                      src="{% static 'cross_disciplinary/LIC發展規劃圖.png' %}" alt="">
