@@ -6,6 +6,16 @@ from django.dispatch import receiver
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
+class Course(models.Model):
+    level = models.IntegerField()
+    name = models.CharField(max_length=255)
+    credit = models.IntegerField()
+    department = models.CharField(max_length=255)
+    required = models.CharField(max_length=255)
+    professor = models.CharField(max_length=255)
+    note = models.TextField(blank=True, default="")
+
+
 class Profile(models.Model):
     MALE = 'M'
     FEMALE = 'F'
@@ -14,6 +24,7 @@ class Profile(models.Model):
         (FEMALE, 'F')
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    courses = models.ManyToManyField(Course)
     student_id = models.CharField(max_length=100)
     eng_name = models.CharField(max_length=100)
     zh_name = models.CharField(max_length=100)
