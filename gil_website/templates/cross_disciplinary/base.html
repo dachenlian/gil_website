@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
+{% block 'header' %}
+<style>
+.tabs .tab a.active {
+	border-bottom: 2px solid #B71C1C;
+}
+.tabs .indicator {
+	display: none;
+}
+{% endblock 'header' %}
+</style>
 {% block nav %}
     {#    {{ block.super }}#}
     {#    <div class="nav-content lime lighten-4">#}
