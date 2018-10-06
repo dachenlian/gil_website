@@ -1,7 +1,14 @@
 {% extends 'cross_disciplinary/base.html' %}
 {% load static %}
-
+{% block full-width %}
+    <div class="slider">
+    <ul class="slides">
+        <li><img src="{% static 'cross_disciplinary/morechairssuperwide.jpg' %}" alt=""></li>
+    </ul>
+    </div>
+{% endblock full-width %}
 {% block content %}
+    {{ block.super }}
     <div style="margin-top: 50px;" class="row">
         <div class="section">
             <h3>修業規定</h3>

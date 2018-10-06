@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .models import Course
 
 from .forms import SignUpForm, ProfileUpdateForm
 from .models import Profile
@@ -24,6 +25,13 @@ class RequirementsView(TemplateView):
 
 class CourseInfoView(TemplateView):
     template_name = "cross_disciplinary/course_info.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['one'] = Course.objects.filter(level=1)
+        context['two'] = Course.objects.filter(level=2)
+        context['three'] = Course.objects.filter(level=3)
+        return context
 
 
 class StudentAreaView(TemplateView):
@@ -69,15 +77,37 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     template_name = "cross_disciplinary/profile_detail.html"
     context_object_name = "profile"
 
+    def get_context_data(self, **kwargs):
+        profile = Profile.objects.get(id=self.request.user.id)
+        context = super().get_context_data(**kwargs)
+        context['selected'] = profile.courses.all()
+        context['not_selected'] = Course.objects.exclude(pk__in=profile.courses.all())
+        return context
+
     def test_func(self):
         profile = self.get_object()
         return profile.id == self.request.user.id
+
+    def post(self, request, pk):
+        course = request.POST.get('course', None)
+        course = Course.objects.get(name=course)
+        course_boolean = request.POST.get('course_boolean', None) == "True"
+        profile = Profile.objects.get(id=request.user.id)
+        if course:
+            if course_boolean:
+                profile.courses.add(course)
+            else:
+                profile.courses.remove(course)
+        return redirect("cross:profile_detail", pk=request.user.pk)
 
 
 class ProfileUpdateView(UpdateView):
     model = Profile
     template_name = "cross_disciplinary/profile_update_form.html"
     form_class = ProfileUpdateForm
+
+    class Meta:
+        exclude = ('courses', )
 
     def form_valid(self, form):
         user = form.save()
