@@ -3,7 +3,8 @@ from easy_thumbnails.fields import ThumbnailerImageField
 
 
 class Student(models.Model):
-    profile_picture = ThumbnailerImageField(upload_to="uploads/people/", blank=True)
+    profile_picture = ThumbnailerImageField(upload_to="uploads/people/", blank=True,
+                                            default="static/people/profile_pic.png")
     eng_name = models.CharField("English name", max_length=100)
     zh_name = models.CharField("Chinese name", max_length=100)
     email = models.EmailField()
