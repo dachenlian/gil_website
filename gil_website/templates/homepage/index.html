@@ -32,10 +32,11 @@
                         {% if item.link %}
                             <a href="{{ item.link }}">{{ item.time_posted }}{{ item.title }}</a>
                         {% elif item.file %}
+                            <span class="grey-text text-darken-2">{{ item.time_posted|date:"M d, Y" }}</span><br>
                             <a href="{{ item.file }}">{{ item.title }}</a>
                         {% else %}
+                            <span class="grey-text text-darken-2">{{ item.time_posted|date:"M d, Y" }}</span><br>
                             {{ item.title }}
-                            {{ item.time_posted }}
                         {% endif %}
                     </li>
                 {% endfor %}
