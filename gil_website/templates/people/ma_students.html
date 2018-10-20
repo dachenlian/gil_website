@@ -4,40 +4,43 @@
 
 {% block nav %}
     <div class="nav-content cyan darken-4">
-    <ul class="tabs tabs-transparent">
-        <li class="tab"><a class="active" href="#first">First</a></li>
-        <li class="tab"><a href="#second">Second</a></li>
-        <li class="tab"><a href="#third">Third</a></li>
-        <li class="tab"><a href="#fourth">Fourth</a></li>
-        <li class="tab"><a href="#graduated">Graduated</a></li>
-    </ul>
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#first">First</a></li>
+            <li class="tab"><a href="#second">Second</a></li>
+            <li class="tab"><a href="#third">Third</a></li>
+            <li class="tab"><a href="#fourth">Fourth</a></li>
+            <li class="tab"><a href="#graduated">Graduated</a></li>
+        </ul>
     </div>
 {% endblock nav %}
 {% block content %}
     <div class="row">
-    <div class="section">
-        <h2>People</h2>
-        <h3>Master Students</h3>
-    </div>
+        <div class="section">
+            <h2>People</h2>
+            <h3>Master Students</h3>
+        </div>
         <div class="divider"></div>
         <div class="section">
             <h5 id="first">First Year</h5>
             {% for student in first %}
-                <div class="col l3 m4 s12">
-                    <div class="card" style="height: 600px;">
-                        <div class="card-image">
-                            <img src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}" alt="">
+                <div class="col l3 m6 s12">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}"
+                                 alt="">
                         </div>
                         <div class="card-content center-align">
-                            <div style="display:flex; flex-direction: column; justify-content: space-between">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between;">
                                 <span class="card-title">{{ student.eng_name }} <br> {{ student.zh_name }}</span>
                                 <a class="grey-text"
                                    href="mailto:{{ student.email }}">{{ student.email }}
                                 </a>
-                                <br>
-                                <p><strong>Research interests</strong></p>
-                                <p>{{ student.research_interests }}</p>
                             </div>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Research Interests
+                                <i class="material-icons right">close</i></span>
+                            <p>{{ student.research_interests }}</p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +53,7 @@
             <h5 id="second">Second Year</h5>
             {% for student in second %}
                 <div class="col l3 m4 s12">
-                    <div class="card" style="height: 600px;">
+                    <div class="card">
                         <div class="card-image">
                             <img src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}" alt="">
                         </div>
@@ -76,7 +79,7 @@
             <h5 id="third">Third Year</h5>
             {% for student in third %}
                 <div class="col l3 m4 s12">
-                    <div class="card" style="height: 600px;">
+                    <div class="card">
                         <div class="card-image">
                             <img src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}" alt="">
                         </div>
@@ -102,7 +105,7 @@
             <h5 id="fourth">Fourth Year</h5>
             {% for student in fourth %}
                 <div class="col l3 m4 s12">
-                    <div class="card" style="height: 600px;">
+                    <div class="card">
                         <div class="card-image">
                             <img src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}" alt="">
                         </div>
@@ -128,7 +131,7 @@
             <h5 class="anchor" id="graduated">Graduated</h5>
             {% for student in graduated %}
                 <div class="col l3 m4 s12">
-                    <div class="card" style="height: 600px;">
+                    <div class="card">
                         <div class="card-image">
                             <img src="{{ student.profile_picture|thumbnail_url:'avatar500x500' }}" alt="">
                         </div>
@@ -163,9 +166,9 @@
 {% endblock content %}
 {% block javascript %}
     <script>
-    $("a").click(function() {
-        $("a").removeClass("active");
-        $( this ).addClass("active");
-    })
+        $("a").click(function () {
+            $("a").removeClass("active");
+            $(this).addClass("active");
+        })
     </script>
 {% endblock javascript %}

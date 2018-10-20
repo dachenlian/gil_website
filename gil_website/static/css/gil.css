@@ -32,3 +32,10 @@ i {
 .tabs .indicator {
     display: none;
 }
+
+div.card {
+    text-overflow: ellipsis !important;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
