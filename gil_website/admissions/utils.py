@@ -2,6 +2,17 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 
+def get_zhenshi(url, year):
+    r = requests.get(url)
+    r.encoding = 'big5'
+    soup = bs(r.text)
+    base_path = "http://gra103.aca.ntu.edu.tw/brochure/{}{}"
+    rel_path = soup.find_all('a', string='1120語言學研究所碩士班')[0]['href'][1:]
+    abs_path = base_path.format(year, rel_path)
+
+    return abs_path
+
+
 def remove_attrs(bs_lst):
     for tag in bs_lst:
         try:
