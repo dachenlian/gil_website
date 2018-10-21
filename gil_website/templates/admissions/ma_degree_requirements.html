@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col s12">
+            <h2>Admissions</h2>
+            <h4>語言所碩士班必修科目及應修學分資料</h4>
+            <h5>應修學分數</h5>
+            <p>系訂必修： 11 學分 選修： 19 學分 應修最低畢業學分： 30 學分 (不含博/碩士論文)</p>
+            <div class="divider"></div>
+            <h5>應修科目</h5>
+        </div>
+        <div class="col s12">
+            <table class="highlight responsive-table centered">
+                <thead>
+                {% autoescape off %}
+                    {{ requirements_table.requirements_header }}
+                {% endautoescape %}
+                </thead>
+                <tbody>
+                {% autoescape off %}
+                    {{ requirements_table.requirements_body }}
+                {% endautoescape %}
+                </tbody>
+            </table>
+            <h5>{{ requirements_table.special_header }}</h5>
+            <p>{{ requirements_table.special_body }}</p>
+            <h5>{{ requirements_table.remarks_header }}</h5>
+            <p>{{ requirements_table.remarks_body }}</p>
+        </div>
+    </div>
+{% endblock %}

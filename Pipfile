@@ -19,6 +19,9 @@ gunicorn = "*"
 uwsgi = "*"
 requests = "*"
 "psycopg2-binary" = "*"
+"beautifulsoup4" = "*"
+lxml = "*"
+"html5lib" = "*"
 
 [requires]
 python_version = "3.7"
