@@ -43,4 +43,11 @@ services:
       - "8000"
     depends_on:
       - db
+  cache:
+    image: memcached
+    restart: always
+    container_name: gil_memcached
+    entrypoint:
+      - memcached
+      - -m 64
 
