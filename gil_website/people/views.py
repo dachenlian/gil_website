@@ -10,11 +10,11 @@ class MasterStudentListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['first'] = MasterStudent.objects.filter(year_of_study='FIRST')
-        context['second'] = MasterStudent.objects.filter(year_of_study='SECOND')
-        context['third'] = MasterStudent.objects.filter(year_of_study='THIRD')
-        context['fourth'] = MasterStudent.objects.filter(year_of_study='FOURTH')
-        context['graduated'] = MasterStudent.objects.filter(year_of_study='GRAD')
+        context['first'] = MasterStudent.objects.filter(year_of_study='FIRST').order_by('eng_name')
+        context['second'] = MasterStudent.objects.filter(year_of_study='SECOND').order_by('eng_name')
+        context['third'] = MasterStudent.objects.filter(year_of_study='THIRD').order_by('eng_name')
+        context['fourth'] = MasterStudent.objects.filter(year_of_study='FOURTH').order_by('eng_name')
+        context['graduated'] = MasterStudent.objects.filter(year_of_study='GRAD').order_by('eng_name')
         return context
     template_name = 'people/ma_students.html'
 
@@ -26,8 +26,8 @@ class DoctorateStudentListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current'] = DoctorateStudent.objects.filter(year_of_study='CURRENT')
-        context['graduated'] = DoctorateStudent.objects.filter(year_of_study='GRAD')
+        context['current'] = DoctorateStudent.objects.filter(year_of_study='CURRENT').order_by('eng_name')
+        context['graduated'] = DoctorateStudent.objects.filter(year_of_study='GRAD').order_by('eng_name')
         return context
 
 
@@ -38,8 +38,8 @@ class FacultyListView(TemplateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current'] = Faculty.objects.filter(status='CURRENT')
-        context['retired'] = Faculty.objects.filter(status='RETIRED')
+        context['current'] = Faculty.objects.filter(status='CURRENT').order_by('eng_name')
+        context['retired'] = Faculty.objects.filter(status='RETIRED').order_by('eng_name')
         return context
 
 
