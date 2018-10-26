@@ -2,3 +2,4 @@
 staticfiles
 *migrations*
 *.envrc
+.idea/

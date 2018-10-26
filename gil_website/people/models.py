@@ -23,12 +23,14 @@ class MasterStudent(Student):
     THIRD = 'THIRD'
     FOURTH = 'FOURTH'
     GRAD = 'GRAD'
+    ABSENT = 'ABSENT'
     YEAR_OF_STUDY_CHOICES = (
         (FIRST, 'First'),
         (SECOND, 'Second'),
         (THIRD, 'Third'),
         (FOURTH, 'Fourth'),
         (GRAD, 'Graduated'),
+        (ABSENT, 'Absent'),
     )
     year_of_study = models.CharField(
         max_length=10,
@@ -40,9 +42,11 @@ class MasterStudent(Student):
 class DoctorateStudent(Student):
     CURRENT = 'CURRENT'
     GRAD = 'GRAD'
+    ABSENT = 'ABSENT'
     YEAR_OF_STUDY_CHOICES = (
         (CURRENT, 'Current'),
         (GRAD, 'Graduated'),
+        (ABSENT, 'Absent'),
     )
     year_of_study = models.CharField(
         max_length=10,

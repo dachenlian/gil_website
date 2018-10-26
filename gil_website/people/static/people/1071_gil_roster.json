@@ -137,19 +137,11 @@
   },
   {
     "degree": "ma",
-    "zh_name": "葉 遲",
-    "eng_name": "April Yeh",
-    "email": "feather358358@gmail.com",
-    "research_interests": "Neurolinguistics, Psycholinguistics, Second Language Acquisition, Pragmatics",
-    "year_of_study": "FOURTH"
-  },
-  {
-    "degree": "ma",
     "zh_name": "鍾柔安",
     "eng_name": "Angel Chang",
     "email": "angelgirl811992@hotmail.com",
     "research_interests": "Neurolinguistics, Language Impairment, Language Acquisition",
-    "year_of_study": "FOURTH"
+    "year_of_study": "GRAD"
   },
   {
     "degree": "ma",
@@ -681,7 +673,7 @@
   },
   {
     "degree": "ma",
-    "year_of_study": "FIRST",
+    "year_of_study": "SECOND",
     "eng_name": "Sherry Chen",
     "zh_name": "陳祐萱",
     "email": "r06142006@ntu.edu.tw",
@@ -696,8 +688,8 @@
     "research_interests": "Computational Linguistics,  Medical Linguistics, Sociolinguistics"
   },
   {
-    "degree": "ma",
-    "year_of_study": "FIRST",
+    "degree": "phd",
+    "year_of_study": "CURRENT",
     "eng_name": "Thomas Schlatter",
     "zh_name": "徐樂德",
     "email": "thomas@whoop.ch",
