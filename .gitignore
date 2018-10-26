@@ -3,3 +3,4 @@ staticfiles
 *migrations*
 *.envrc
 .idea/
+web-variables.env
