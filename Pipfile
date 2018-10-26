@@ -18,6 +18,11 @@ easy-thumbnails = "*"
 gunicorn = "*"
 uwsgi = "*"
 requests = "*"
+"psycopg2-binary" = "*"
+"beautifulsoup4" = "*"
+lxml = "*"
+"html5lib" = "*"
+python-memcached = "*"
 
 [requires]
 python_version = "3.7"

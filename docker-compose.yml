@@ -4,11 +4,12 @@ services:
   nginx:
     image: nginx
     container_name: gil_nginx
+    restart: always
     ports:
       - "8002:8000"
-        #    environment:
+    environment:
         #      - NGINX_HOST=140.112.147.121
-        #      - NGINX_PORT=8002  
+      - NGINX_PORT=8002
     volumes:
       - .:/code
       - ./config/nginx:/etc/nginx/conf.d
@@ -21,8 +22,11 @@ services:
     image: postgres
     container_name: gil_postgres
     restart: always
-    # volumes:
-    #  - ./postgres-data:/var/lib/postgresql/data/
+#    command: postgres -c listen_addresses="*"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data/
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf
+
   web:
     build: .
     container_name: gil_django
@@ -39,3 +43,11 @@ services:
       - "8000"
     depends_on:
       - db
+  cache:
+    image: memcached
+    restart: always
+    container_name: gil_memcached
+    entrypoint:
+      - memcached
+      - -m 64
+

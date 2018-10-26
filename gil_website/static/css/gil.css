@@ -25,10 +25,18 @@ i {
     }
 }
 
-.tabs .tab a.active {
-    border-bottom: 2px solid #B71C1C;
-}
+/*.tabs .tab a.active {*/
+    /*border-bottom: 2px solid #B71C1C;*/
+/*}*/
 
-.tabs .indicator {
-    display: none;
-}
+/*.tabs .indicator {*/
+    /*display: none;*/
+/*}*/
+
+/*div.card {*/
+    /*text-overflow: ellipsis !important;*/
+
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+/*}*/
+

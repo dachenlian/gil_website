@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <h2>Admissions</h2>
+        <div class="divider"></div>
+        <div class="section">
+            <h4>{{ year }}學年度一般生簡章</h4>
+            <p>Please also download
+                <a href="{% static 'admissions/ma_letter_of_recommendation_form.pdf' %}" target="_blank">Letter of Recommendation
+                    Form</a> for application.</p>
+
+            <object style="height: 1000px; width: 100%;" data="{{ regulations }}"
+                    type="application/pdf"></object>
+        </div>
+    </div>
+{% endblock content %}

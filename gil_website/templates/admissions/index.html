@@ -1,27 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <div class="row">
         <h2>Admissions</h2>
         <div class="divider"></div>
         <div class="section">
             <h4>Masters</h4>
-            <p><a href="{% url 'admissions:zhenshi' %}">甄試</a></p>
-            <p><a href="">一般生</a></p>
-            <p><a href="">Download Letter of Recommendation Form</a></p>
-            <p><a class="item" href="">Degree Requirement</a></p>
+            <div class="collection">
+                <a class="collection-item" href="{% url 'admissions:zhenshi' %}">甄試</a>
+                <a class="collection-item" href="{% url 'admissions:regular' %}">一般生</a>
+                <a class="collection-item" href="{% static 'admissions/ma_letter_of_recommendation_form.pdf' %}">Download
+                    Letter of
+                    Recommendation Form</a>
+                <a class="collection-item" href="{% url 'admissions:ma_degree' %}">Degree Requirement</a>
+            </div>
         </div>
-        <div class="divider"></div>
         <div class="section">
             <h4>Doctorate</h4>
-            <p><a href="">招生簡章</a></p>
-            <p><a href="">Download Letter of Recommendation Form</a></p>
-            <p><a href="">Degree Requirement</a></p>
-            <p><a href="">國立臺灣大學文學院語言學研究所辦理教師評審暨評鑑優良學術期刊等級名錄</a></p>
+            <div class="collection">
+                <a class="collection-item" href="">招生簡章</a>
+                <a class="collection-item" href="">Download Letter of Recommendation Form</a>
+                <a class="collection-item" href="{% url 'admissions:phd_degree' %}">Degree Requirement</a>
+                <a class="collection-item" href="">國立臺灣大學文學院語言學研究所辦理教師評審暨評鑑優良學術期刊等級名錄</a>
+            </div>
         </div>
-        <div class="divider"></div>
         <div class="section">
             <h4>International Students</h4>
-            <p><a href="">Office of International Affairs</a></p>
+            <div class="collection">
+                <a class="collection-item" href="http://www.oia.ntu.edu.tw/">Office of International Affairs</a>
+            </div>
         </div>
     </div>
 {% endblock %}

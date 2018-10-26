@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load slash %}
+
+{% block content %}
+    <div class="row">
+        <div class="col s12">
+            <h3>News & Events</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Content</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.time_posted|date:"M d, Y" }}</td>
+                        <td>{{ event.type_of_event|slash }}</td>
+                        {% if event.link %}
+                            <td><a class="teal-text text-lighten-2" href="{{ event.link }}">
+                                {{ event.title|slash }}</a></td>
+                        {% elif event.file %}
+                            <td><a class="teal-text text-lighten-2" href="{{ event.file }}">{{ event.title }}</a></td>
+                        {% else %}
+                            <td>{{ event.title|slash }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
