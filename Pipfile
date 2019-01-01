@@ -23,6 +23,7 @@ requests = "*"
 lxml = "*"
 "html5lib" = "*"
 python-memcached = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"

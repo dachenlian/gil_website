@@ -1,23 +1,23 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx
-    container_name: gil_nginx
-    restart: always
-    ports:
-      - "80:8000"
-    environment:
-        #      - NGINX_HOST=140.112.147.121
-      - NGINX_PORT=80
-    volumes:
-      - .:/code
-      - ./config/nginx:/etc/nginx/conf.d
-      - ./staticfiles:/code/staticfiles
-      - ./media:/code/gil_website/media
-        # - ./config/
-    depends_on:
-      - web
+#  nginx:
+#    image: nginx
+#    container_name: gil_nginx
+#    restart: always
+#    ports:
+#      - "80:8000"
+#    environment:
+#        #      - NGINX_HOST=140.112.147.121
+#      - NGINX_PORT=80
+#    volumes:
+#      - .:/code
+#      - ./config/nginx:/etc/nginx/conf.d
+#      - ./staticfiles:/code/staticfiles
+#      - ./media:/code/gil_website/media
+#        # - ./config/
+#    depends_on:
+#      - web
   db:
     image: postgres
     container_name: gil_postgres
@@ -43,8 +43,8 @@ services:
       - .:/code
       - ./staticfiles:/code/staticfiles
       - ./media:/code/gil_website/media
-    expose:
-      - "8000"
+    ports:
+      - "80:8000"
     depends_on:
       - db
   cache:
