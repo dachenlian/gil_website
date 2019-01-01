@@ -40,11 +40,11 @@ services:
       && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000 --workers 4"
     #command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn gil_website.gil_configuration.wsgi"
     volumes:
-      - .:/code
-      - ./staticfiles:/code/staticfiles
+#      - .:/code
+#      - ./staticfiles:/code/staticfiles
       - ./media:/code/gil_website/media
     ports:
-      - "80:8000"
+      - "8001:8000"
     depends_on:
       - db
   cache:
