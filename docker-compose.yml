@@ -6,10 +6,10 @@ services:
     container_name: gil_nginx
     restart: always
     ports:
-      - "8002:8000"
+      - "80:8000"
     environment:
         #      - NGINX_HOST=140.112.147.121
-      - NGINX_PORT=8002
+      - NGINX_PORT=80
     volumes:
       - .:/code
       - ./config/nginx:/etc/nginx/conf.d
@@ -33,7 +33,11 @@ services:
     restart: always
     env_file:
       - web-variables.env
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000"
+    command: >
+      bash -c "python manage.py makemigrations --noinput
+      && python manage.py migrate --noinput
+      && python manage.py collectstatic --noinput
+      && gunicorn gil_configuration.wsgi:application -b 0.0.0.0:8000 --workers 4"
     #command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn gil_website.gil_configuration.wsgi"
     volumes:
       - .:/code
