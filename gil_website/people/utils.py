@@ -15,7 +15,7 @@ with open(Path(__file__).parent.joinpath("static/people/gil_faculty.json")) as f
     FACULTY_LIST = json.load(fp)
 
 
-def save_students_to_db(students_lst):
+def save_students_to_db(students_lst=STUDENT_LIST):
     for student in students_lst:
         student = dict(student)
         if student['degree'] == 'ma':
@@ -37,7 +37,7 @@ def save_students_to_db(students_lst):
             instance.save()
 
 
-def save_faculty_to_db(faculty_lst):
+def save_faculty_to_db(faculty_lst=FACULTY_LIST):
     for f in faculty_lst:
         query = Faculty.objects.filter(zh_name=f['zh_name'])
         if query:
