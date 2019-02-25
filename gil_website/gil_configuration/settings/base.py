@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '140.112.147.121', 'web', '140.112.147.125',
-                 'linguistics.ntu.edu.tw']
+                 'linguistics.ntu.edu.tw:80']
 
 # Application definition
 
