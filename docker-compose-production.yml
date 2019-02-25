@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  web:
+    environment:
+      -DJANGO_SETTINGS_MODULE=gil_configuration.settings.production
