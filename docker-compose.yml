@@ -35,7 +35,7 @@ services:
       bash -c "python manage.py makemigrations --noinput
       && python manage.py migrate --noinput
       && python manage.py collectstatic --noinput
-      && gunicorn gil_configuration.wsgi:application -b :8000 --workers 4"
+      && gunicorn gil_configuration.wsgi:application -b :80 --workers 4"
     volumes:
 #      - .:/code
       - ./staticfiles:/code/staticfiles
